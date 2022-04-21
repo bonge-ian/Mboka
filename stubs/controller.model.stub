@@ -1,0 +1,72 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use {{ rootNamespace }}Http\Controllers\Controller;
+use {{ namespacedRequests }}
+
+class {{ class }} extends Controller
+{
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function index() : \Illuminate\Http\Response
+    {
+        //
+    }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function create() : \Illuminate\Http\Response
+    {
+        //
+    }
+
+    /**
+     * @param  \{{ namespacedStoreRequest }}  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store({{ storeRequest }} $request) : \Illuminate\Http\Response
+    {
+        //
+    }
+
+    /**
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function show({{ model }} ${{ modelVariable }}) : \Illuminate\Http\Response
+    {
+        //
+    }
+
+    /**
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function edit({{ model }} ${{ modelVariable }}) : \Illuminate\Http\Response
+    {
+        //
+    }
+
+    /**
+     * @param  \{{ namespacedUpdateRequest }}  $request
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }}) : \Illuminate\Http\Response
+    {
+        //
+    }
+
+    /**
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy({{ model }} ${{ modelVariable }}) : \Illuminate\Http\Response
+    {
+        //
+    }
+}
