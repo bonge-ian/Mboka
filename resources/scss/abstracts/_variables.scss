@@ -47,29 +47,30 @@ $global-xsmall-font-size: 12px !default;
 //
 // Colors
 //
-$global-color: #666 !default;
-$global-emphasis-color: #333 !default;
-$global-muted-color: #999 !default;
-$global-link-color: #1e87f0 !default;
-$global-link-hover-color: #0f6ecd !default;
+$global-color: #2d3847 !default;
+$global-emphasis-color: #223650 !default;
+$global-muted-color: #747a96 !default;
+$global-link-color: #1991ee !default;
+$global-link-hover-color: #52b0f9 !default;
 $global-inverse-color: #fff !default;
 
 //
 // Backgrounds
 //
-$global-background: #fff !default;
-$global-muted-background: #f5f5fa !default;
-$global-primary-background: #00d066 !default;
-$global-secondary-background: #ffbd00 !default;
-$global-success-background: #32d296 !default;
-$global-warning-background: #ffdf86 !default;
-$global-danger-background: #ff4e00 !default;
+$global-background: #edf1fa !default;
+$global-muted-background: #e4eaf7 !default;
+$global-primary-background: #1991ee !default;
+$global-secondary-background: #0c273a !default;
+
+$global-success-background: #19eea5 !default;
+$global-warning-background: #ffcd19 !default;
+$global-danger-background: #ff4352 !default;
 
 //
 // Borders
 //
 $global-border-width: 1px !default;
-$global-border: #e5e5e5 !default;
+$global-border: #e0e5ed !default;
 
 //
 // Box-Shadows
@@ -121,3 +122,135 @@ $inverse-global-muted-background: rgba($global-inverse-color, 0.1) !default;
 $inverse-global-border: rgba($global-inverse-color, 0.2) !default;
 
 //@mixin hook-inverse(){}
+
+// custom variables
+$base-selection-background: $global-primary-background;
+$primary-linear-gradient: linear-gradient(51deg,
+    #1865e0 50%,
+    #199ef2 80%,
+    #16b6f5 100%);
+$primary-active-linear-gradient: linear-gradient(51deg,
+    #005cd7 50%,
+    #0093e6 80%,
+    #00aae8 100%);
+
+$secondary-linear-gradient: linear-gradient(51deg,
+    #1865e0 0,
+    #199ef2 30%,
+    #16b6f5 50%);
+
+$secondary-hover-linear-gradient: linear-gradient(51deg,
+    #005cd7 0,
+    #0093e6 30%,
+    #00aae8 50%);
+
+$navbar-item-hover-linear-gradient: linear-gradient(90deg,
+    #1865e0 0,
+    #199ef2 50%,
+    #16b6f5 100%);
+
+$text-linear-gradient: linear-gradient(40deg,
+    #1865e0 0,
+    #199ef2 50%,
+    #16b6f5 100%);
+
+$placeholder-border: lighten($global-primary-background, 25%);
+
+
+$navbar-nav-item-active-color: $global-primary-background;
+$navbar-dropdown-background: $global-background;
+$navbar-dropdown-nav-item-color: $global-emphasis-color;
+$navbar-dropdown-nav-item-hover-color: $global-primary-background;
+$navbar-dropdown-nav-item-active-color: $global-primary-background;
+$navbar-dropdown-nav-header-color: $global-emphasis-color;
+
+$button-default-active-background: $global-color;
+$button-default-hover-background: $global-color;
+$button-default-background: $global-color;
+$button-default-color: $global-emphasis-color;
+$button-default-hover-color: $global-primary-background;
+$button-default-active-color: $global-primary-background;
+$button-primary-hover-background: #1084dd;
+
+$button-text-hover-color: $global-primary-background;
+$button-link-hover-color: $global-primary-background;
+
+$card-hover-background: $global-background;
+$card-default-background: $global-background;
+$card-default-hover-background: $global-background;
+
+$heading-bullet-border:$global-primary-background;
+$divider-small-border:$global-primary-background;
+$divider-vertical-border:$global-primary-background;
+$divider-icon-color:$global-primary-background;
+
+$internal-list-bullet-image: "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%0A%20%20%20%20%3Ccircle%20stroke%3D%22%2326B9C4%22%20cx%3D%226%22%20cy%3D%226%22%20r%3D%223.5%22%20fill%3D%22none%22%20%2F%3E%0A%3C%2Fsvg%3E%0A";
+$accordion-icon-color: $global-primary-background;
+
+$inverse-nav-default-item-color: rgba($global-inverse-color, 0.7);
+$inverse-base-link-color: rgba($global-inverse-color, 0.7);
+$inverse-icon-link-color: rgba($global-inverse-color, 0.7);
+$inverse-iconnav-item-color: rgba($global-inverse-color, 0.7);
+
+$inverse-nav-default-item-hover-color: $global-inverse-color;
+$inverse-base-link-hover-color: $global-inverse-color;
+$inverse-nav-default-item-active-color: $global-inverse-color;
+
+$inverse-icon-link-hover-color: $global-inverse-color;
+$inverse-icon-link-active-color: $global-inverse-color;
+
+
+// $table-header-cell-color :$global-muted-color;
+// $table-row-active-background: #f7f8fa;
+
+// $icon-link-color: $global-emphasis-color;
+// $icon-link-hover-color: $global-primary-background;
+// $icon-link-active-color:#2b3d6c;
+// $icon-button-color: $global-emphasis-color;
+// $icon-button-hover-background: $global-primary-background;
+// $icon-button-hover-color: $global-inverse-color;
+// $icon-button-active-background: $global-secondary-background;
+// $icon-button-active-color: $global-inverse-color;
+
+
+
+// $nav-default-item-hover-color:$global-primary-background;
+// $nav-default-item-active-color:$global-primary-background;
+// $nav-default-sublist-item-hover-color:$global-primary-background;
+// $nav-default-sublist-item-active-color:$global-primary-background;
+// $nav-primary-item-color: $global-emphasis-color;
+// $nav-primary-item-hover-color:$global-primary-background;
+// $nav-primary-item-active-color:$global-primary-background;
+// $nav-primary-sublist-item-hover-color:$global-primary-background;
+// $nav-primary-sublist-item-active-color:$global-primary-background;
+// $navbar-toggle-color: $global-emphasis-color;
+
+// $navbar-toggle-hover-color: $global-primary-background;
+// $navbar-dropdown-background: $global-inverse-color;
+// $navbar-dropdown-nav-item-color: $global-emphasis-color;
+// $navbar-dropdown-nav-item-hover-color: $global-primary-background;
+// $navbar-dropdown-nav-item-active-color: $global-primary-background;
+// $navbar-dropdown-nav-sublist-item-color: $global-emphasis-color;
+// $navbar-dropdown-nav-sublist-item-hover-color: $global-primary-background;
+// $navbar-dropdown-nav-sublist-item-active-color: $global-primary-background;
+// $navbar-dropbar-background: $global-inverse-color;
+
+// $subnav-item-color: $global-emphasis-color;
+// $subnav-item-hover-color: $global-link-color;
+// $subnav-item-active-color:$subnav-item-hover-color;
+
+// $iconnav-item-hover-color: $global-primary-background;
+// $iconnav-item-active-color: $global-primary-background;
+
+
+// $alert-warning-color: darken($global-warning-background, 5%) !default;
+// $list-bullet-icon-color: $global-primary-background;
+
+
+
+// $inverse-button-default-background: $global-inverse-color;
+// $inverse-button-default-color: $global-emphasis-color;
+// $inverse-button-default-hover-background: darken($global-muted-background, 5%) !important;
+// $inverse-button-default-hover-color: $global-emphasis-color !important;
+// $inverse-button-default-active-background:$inverse-button-default-hover-background !important;
+// $inverse-button-default-active-color: $global-emphasis-color;
