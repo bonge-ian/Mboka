@@ -6,7 +6,7 @@
     ]
 )
 
-<div {{ $attributes->merge(['class' => 'uk-alert uk-alert-'.$type]) }} uk-alert>
+<div {{ $attributes->merge(['class' => 'uk-border-rounded uk-alert uk-alert-'.$type]) }} uk-alert>
     @if ($close)
         <a class="uk-alert-close" uk-close></a>
     @endif
