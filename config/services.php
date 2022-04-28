@@ -31,4 +31,20 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'flutterwave' => [
+        'key' => env('FLUTTERWAVE_PUBLIC_KEY'), // public key
+        'secret' => env('FLUTTERWAVE_SECRET'), // secret key
+        'base_url' => env('FLUTTERWAVE_BASE_URL', 'https://api.flutterwave.com/v3/'),
+        'currency' => env('FLUTTERWAVE_DEFAULT_CURRENCY', 'KES'),
+        'payment_options' => env('FLUTTERWAVE_PAYMENT_METHODS', 'card,account,mpesa'),
+        'timeout' => env('FLUTTERWAVE_TIMEOUT', 10),
+        'retry_times' => null,
+        'retry_interval' => null,
+        'customizations' => [
+            'title' => env('APP_NAME', 'Mboka'),
+            'logo' => storage_path('public/assets/mboka-logo.svg'),
+            'description' => 'Payment for a listing'
+        ]
+    ]
+
 ];

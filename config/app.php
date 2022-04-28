@@ -180,6 +180,7 @@ return [
         App\Providers\FortifyUIServiceProvider::class,
         App\Providers\BladeComponentServiceProvider::class,
         App\Providers\FakerServiceProvider::class,
+        App\Providers\ServicesServiceProvider::class,
 
     ],
 
