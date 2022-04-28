@@ -1,4 +1,4 @@
 <div>
-    <img data-src="https://laravel.com/img/logomark.min.svg" alt="Laravel Logo" uk-svg uk-img>
+    <a class="uk-icon" href="/" uk-icon="icon: logo"></a>
 </div>
 <hr class="uk-divider-small" />
