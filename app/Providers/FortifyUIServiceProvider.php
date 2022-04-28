@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Laravel\Fortify\Fortify;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Fortify;
 
 class FortifyUIServiceProvider extends ServiceProvider
 {
@@ -25,8 +25,6 @@ class FortifyUIServiceProvider extends ServiceProvider
     public function boot()
     {
         Fortify::loginView(function () {
-            session()->put('url.intended', url()->previous());
-            
             return view('auth.login');
         });
 
