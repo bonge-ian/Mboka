@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
 use App\Domain\States\ListingTypeEnum;
 use App\Models\Concerns\HasSlugWithKey;
 use Illuminate\Database\Eloquent\Model;
@@ -11,13 +13,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * @mixin IdeHelperListing
+ */
 class Listing extends Model
 {
     use HasFactory;
 
     use HasSlugWithKey;
 
-    protected $fillabe = [
+    protected $fillable = [
         'employee_availability',
         'highlight_color',
         'is_highlighted',
@@ -82,5 +87,36 @@ class Listing extends Model
             foreignPivotKey: 'listing_id',
             relatedPivotKey: 'tag_id'
         );
+    }
+
+    public static function rules(): array
+    {
+        return  [
+            'employee_availability' => [
+                'required',
+                new Enum(EmployeeAvailabilityEnum::class)
+            ],
+            'is_highlighted' => 'nullable|sometimes|boolean',
+            'highlight_color' => 'nullable|sometimes|required_with:is_highlighted|string',
+            'listing_type' => [
+                'required',
+                new Enum(ListingTypeEnum::class)
+            ],
+            'on_site_days' => [
+                'nullable',
+                'numeric',
+                'min:1',
+                'max:5'
+            ],
+            'category_id' => 'required|numeric|exists:categories,id|min:1',
+            'experience' => 'required|string|min:10',
+            'is_pinned' => 'nullable|sometimes|boolean',
+            'show_logo' => 'nullable|sometimes|boolean',
+            'apply_url' => 'required|url',
+            'location' => 'required',
+            'overview' => 'required|string|min:10',
+            'perks' => 'required|string|min:10',
+            'title' => 'required|string|min:4',
+        ];
     }
 }
