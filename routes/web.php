@@ -17,5 +17,9 @@ Route::prefix('user')->middleware(['auth', 'verified'])->group(function () {
     Route::view('profile', 'profile.show');
 });
 
+Route::prefix('listing')->name('listing.')->group(function () {
+    Route::get('create', CreateListing::class)->name('create');
+});
+
 Route::get('payment/verification', PaymentController::class)
     ->name('payment.verification');

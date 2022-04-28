@@ -82,7 +82,7 @@
                         @endguest
                     </ul>
                     <div class="uk-navbar-item uk-visible@m">
-                        <a class="uk-button uk-button-primary uk-border-rounded" href="#">Create a Listing</a>
+                        <a class="uk-button uk-button-primary uk-border-rounded" href="{{ route('listing.create') }}">Create a Listing</a>
                     </div>
                 </div>
             </nav>
@@ -167,7 +167,7 @@
                                 <div class="uk-panel">
                                     <div>
                                         <a class="uk-button uk-button-primary uk-button-large uk-border-rounded uk-width-1-1"
-                                            href="#">Create a Listing</a>
+                                            href="{{ route('listing.create') }}">Create a Listing</a>
                                     </div>
                                     <hr>
                                     <p class="uk-text-meta uk-text-center">©
