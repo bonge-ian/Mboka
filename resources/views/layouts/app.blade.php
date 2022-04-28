@@ -1,52 +1,107 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- CSRF Token -->
-		<meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 
-		@isset($title)
-			<title>{{ config('app.name', 'Laravel') }} - {{ $title }}</title>
-		@else
-			<title>{{ config('app.name', 'Laravel') }}</title>
-		@endisset
+    <!-- CSRF Token -->
+    <meta name="csrf-token"
+          content="{{ csrf_token() }}">
 
-		<!-- Scripts -->
-		<script src="{{ mix('js/manifest.js') }}"></script>
-		<script src="{{ mix('js/vendor.js') }}"></script>
+    @isset($title)
+        <title>{{ config('app.name', 'Laravel') }} - {{ $title }}</title>
+    @else
+        <title>{{ config('app.name', 'Laravel') }}</title>
+    @endisset
 
-		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="{{ mix('js/manifest.js') }}"></script>
+    <script src="{{ mix('js/vendor.js') }}"></script>
 
-		<!-- Styles -->
-		<link rel="stylesheet" href="{{ mix('css/app.css') }}" />
-        <livewire:styles/>
-	</head>
+    <!-- Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;700&display=swap"
+          rel="stylesheet">
 
-	<body>
-		<div id="app">
-			<x-navbar />
+    <!-- Styles -->
+    <link rel="stylesheet"
+          href="{{ mix('css/app.css') }}" />
+    <livewire:styles />
+</head>
 
-			<main class="uk-background-muted">
+<body>
+    <div id="app">
+        <x-navbar />
 
-				@if (session('status'))
-                    <aside class="uk-container">
-                        <div class="uk-margin-top">
-                            <x-status-alert />
-                        </div>
-                    </aside>
-                @endif
+        <main class="uk-background-muted">
 
-				 {{ $slot }}
-			</main>
-		</div>
+            @if (session('status'))
+                <aside class="uk-container uk-container-small">
+                    <div class="uk-margin-top">
+                        <x-status-alert />
+                    </div>
+                </aside>
+            @endif
 
-		<!-- App -->
-		<script src="{{ mix('js/app.js') }}"></script>
-        <livewire:scripts/>
-	</body>
+            @if (session('error') || session('success'))
+                <aside class="uk-container uk-container-small">
+                    <div class="uk-margin-top">
+                        <x-session-alert />
+                    </div>
+                </aside>
+            @endif
+
+            {{ $slot }}
+        </main>
+    </div>
+
+    <!-- App -->
+    <script src="{{ mix('js/app.js') }}"></script>
+    <livewire:scripts />
+    <script>
+        document.addEventListener("livewire:load", () => {
+            window.livewire.hook("element.updated", (el, component) => {
+                if (el.hasAttribute("uk-icon")) {
+                    UIkit.icon(el, {
+                        icon: el.getAttribute("uk-icon"),
+                    });
+                }
+
+                if (el.hasAttribute("uk-spinner")) {
+                    UIkit.spinner(el);
+                }
+
+                if (el.hasAttribute('uk-grid')) {
+                    UIkit.update(el);
+                }
+
+                if (el.hasAttribute("uk-pagination-previous")) {
+                    UIkit.icon(el, {
+                        icon: el.getAttribute("uk-pagination-previous"),
+                    });
+                }
+
+                if (el.hasAttribute("uk-pagination-next")) {
+                    UIkit.icon(el, {
+                        icon: el.getAttribute("uk-pagination-next"),
+                    });
+                }
+
+                if (el.hasAttribute("uk-img")) {
+                    UIkit.img(el, {
+                        dataSrc: el.getAttribute("data-src"),
+                    });
+                }
+            });
+
+        });
+    </script>
+</body>
+
 </html>
