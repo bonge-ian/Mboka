@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Validation\Rules\Password;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * @mixin IdeHelperUser
@@ -52,10 +53,27 @@ class User extends Authenticatable
         );
     }
 
-    public static function rules() : array
+    public function toArray(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => $this->name,
+            'email' => $this->email,
+        ];
+    }
+
+    public static function rules(): array
+    {
+        return [
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (str_word_count($value) <= 1) {
+                        $fail("Kindly enter your full name. Single names aren't allowed.");
+                    }
+                }
+            ],
             'email' => [
                 'required',
                 'string',
@@ -67,11 +85,12 @@ class User extends Authenticatable
                 'required',
                 'string',
                 Password::min(8)
-                    ->letters()
-                    ->mixedCase()
-                    ->numbers()
-                    ->symbols()
-                    ->uncompromised(),
+                    ->default(),
+                // ->letters()
+                // ->mixedCase()
+                // ->numbers()
+                // ->symbols()
+                // ->uncompromised(),
                 'confirmed'
             ],
         ];
