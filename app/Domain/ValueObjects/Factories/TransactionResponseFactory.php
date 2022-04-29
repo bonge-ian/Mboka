@@ -17,7 +17,7 @@ class TransactionResponseFactory implements ValueObjectFactory
             transactionCode: $attributes['tx_ref'],
             amount: floatval($attributes['amount']),
             paymentType: strval($attributes['payment_type']),
-            created_at: Carbon::parse($attributes['created_at']),
+            created_at: Carbon::parse($attributes['created_at'], config('app.timezone')),
             status: strval($attributes['status']),
         );
     }

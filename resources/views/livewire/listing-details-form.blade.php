@@ -19,15 +19,17 @@
             </a>
         </header>
 
-        <div class="uk-tile uk-tile-small uk-border-rounded uk-tile-secondary uk-margin ">
-            <p class="uk-text-middle">
-                <span>Already have an account?</span>
-                <a href="{{ route('login') }}"
-                   class="uk-button uk-button-primary uk-border-rounded uk-display-inline uk-margin-small-left uk-box-shadow-none uk-text-white">
-                    Login
-                </a>
-            </p>
-        </div>
+        @guest
+            <div class="uk-tile uk-tile-small uk-border-rounded uk-tile-secondary uk-margin ">
+                <p class="uk-text-middle">
+                    <span>Already have an account?</span>
+                    <a href="{{ route('login') }}"
+                       class="uk-button uk-button-primary uk-border-rounded uk-display-inline uk-margin-small-left uk-box-shadow-none uk-text-white">
+                        Login
+                    </a>
+                </p>
+            </div>
+        @endguest
 
         <form wire:submit.prevent="submit">
 

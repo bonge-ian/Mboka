@@ -9,6 +9,7 @@ use App\Models\Concerns\HasSlugWithKey;
 use Illuminate\Database\Eloquent\Model;
 use App\Domain\States\ListingStatusEnum;
 use App\Domain\States\EmployeeAvailabilityEnum;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -86,6 +87,14 @@ class Listing extends Model
             table: 'listing_tag',
             foreignPivotKey: 'listing_id',
             relatedPivotKey: 'tag_id'
+        );
+    }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(
+            related: Payment::class,
+            foreignKey: 'listing_id'
         );
     }
 

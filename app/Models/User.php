@@ -53,6 +53,15 @@ class User extends Authenticatable
         );
     }
 
+    public function payments(): HasMany
+    {
+        return $this->hasMany(
+            related: Payment::class,
+            foreignKey: 'user_id'
+        );
+    }
+
+
     public function toArray(): array
     {
         return [
