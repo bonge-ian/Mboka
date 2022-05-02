@@ -100,6 +100,16 @@ class Listing extends Model
         );
     }
 
+    public function scopeRelatedProducts($query)
+    {
+        $query
+            ->where('category_id', $this->category_id)
+            ->select(['id', 'title', 'slug', 'location', 'company_id'])
+            ->with('company')
+            ->inRandomOrder()
+            ->limit(5);
+    }
+
     public static function rules(): array
     {
         return  [
