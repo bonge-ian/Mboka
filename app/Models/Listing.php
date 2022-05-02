@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
+use App\Rules\Location\ValidCountry;
 use Illuminate\Validation\Rules\Enum;
 use App\Domain\States\ListingTypeEnum;
+use App\Rules\Location\LocationFormat;
 use App\Models\Concerns\HasSlugWithKey;
 use Illuminate\Database\Eloquent\Model;
 use App\Domain\States\ListingStatusEnum;
@@ -122,7 +124,11 @@ class Listing extends Model
             'is_pinned' => 'nullable|sometimes|boolean',
             'show_logo' => 'nullable|sometimes|boolean',
             'apply_url' => 'required|url',
-            'location' => 'required',
+            'location' => [
+                'required',
+                new LocationFormat,
+                new ValidCountry,
+            ],
             'overview' => 'required|string|min:10',
             'perks' => 'required|string|min:10',
             'title' => 'required|string|min:4',

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasSlug;
+use App\Rules\Location\ValidCountry;
+use App\Rules\Location\LocationFormat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -37,7 +39,12 @@ class Company extends Model
     public static function rules(): array
     {
         return [
-            'headquarters' => 'required|string',
+            'headquarters' => [
+                'required',
+                'string',
+                new LocationFormat,
+                new ValidCountry
+            ],
             'website' => 'required|string|url',
             'logo' => 'required|image|max:1024',
             'name' => 'required|string|min:3',
