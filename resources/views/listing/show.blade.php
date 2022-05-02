@@ -5,16 +5,17 @@
              <div class="uk-tile uk-tile-default uk-width-1-1 uk-padding-small-top uk-text-left@s uk-text-center">
                  @if ($listing->show_logo)
                      <img src="{{ asset('/storage/companies/assets/' . $listing->company->logo) }}"
-                          alt=""
+                          alt="{{ $listing->company->name }}'s' Logo"
                           width="100"
-                          height="75"
+                          height="100"
                           class="uk-border-circle uk-position-relative listing-header-image">
                  @else
-                     <img src="{{ Creativeorange\Gravatar\Facades\Gravatar::get($listing->owner->email) }}"
-                          alt=""
+                     <img src="{{ asset('/storage/assets/img/no-image.svg') }}"
+                          alt="No Image SVG"
                           width="100"
-                          height="75"
-                          class="uk-border-circle uk-position-relative listing-header-image">
+                          height="90"
+                          class="uk-border-circle uk-position-relative listing-header-image"
+                          uk-svg>
                  @endif
 
                  <section class="uk-panel uk-position-relative  listing-header-details">
@@ -28,7 +29,7 @@
                      <div class="uk-panel uk-flex uk-flex-between@s uk-flex-center uk-flex-middle uk-text-center">
                          <div class="uk-text-meta ">
                              <p class="uk-text-middle uk-display-inline">
-                                 <span>{{ $listing->location }}</span>
+                                 <a href="#">{{ $listing->location }}</a>
                                  <span class="uk-margin-small-left uk-margin-small-right">&#10047;</span>
                                  <span>{{ $listing->created_at->diffForHumans() }}</span>
                              </p>
@@ -98,19 +99,21 @@
 
                          </p>
 
-                         <h4 class="uk-margin-small-top uk-text-bold ">Tools Used/Tech Stack</h4>
+                         <div class="uk-background-muted uk-border-rounded uk-padding">
+                             <h4 class="uk-margin-small-top uk-text-bold ">Tools Used/Tech Stack</h4>
 
-                         @if ($listing->tags->isNotEmpty())
-                             <div class="uk-button-group ">
-                                 @forelse ($listing->tags as $tag)
-                                     <button
-                                             class="uk-button uk-button-small @if (!$loop->last) uk-margin-small-right @endif">
-                                         {{ $tag->name }}
-                                     </button>
-                                 @empty
-                                 @endforelse
-                             </div>
-                         @endif
+                             @if ($listing->tags->isNotEmpty())
+                                 <div class="uk-button-group ">
+                                     @forelse ($listing->tags as $tag)
+                                         <button
+                                                 class="uk-button uk-button-small @if (!$loop->last) uk-margin-small-right @endif">
+                                             {{ $tag->name }}
+                                         </button>
+                                     @empty
+                                     @endforelse
+                                 </div>
+                             @endif
+                         </div>
 
                      </div>
                  </div>
@@ -184,7 +187,8 @@
 
      <article class="uk-section uk-section-default uk-padding-small-top">
          <div class="uk-container">
-             <div class="uk-grid uk-grid-medium uk-child-width-1-1" id="about-related-jobs"
+             <div class="uk-grid uk-grid-medium uk-child-width-1-1"
+                  id="about-related-jobs"
                   uk-grid>
                  <div class="uk-width-2-3@m">
                      <div class="uk-tile uk-tile-default uk-box-shadow-medium uk-sticky uk-border-rounded uk-position-z-index"
@@ -199,12 +203,15 @@
                                      <img class="uk-border-circle uk-object-fill"
                                           width="100"
                                           height="100"
+                                          alt="{{ $listing->company->name }}'s Logo"
                                           src="{{ asset('/storage/companies/assets/' . $listing->company->logo) }}">
                                  @else
                                      <img class="uk-border-circle"
                                           width="100"
-                                          height="100"
-                                          src="{{ Creativeorange\Gravatar\Facades\Gravatar::get($listing->owner->email) }}">
+                                          height="90"
+                                          src="{{ asset('/storage/assets/img/no-image.svg') }}"
+                                          alt="No Image SVG"
+                                          uk-svg>
                                  @endif
                              </div>
                              <div class="uk-width-expand">
@@ -218,8 +225,9 @@
                                            uk-icon="icon: location"></span>
                                      <span>{{ $listing->company->headquarters }}</span>
                                  </p>
-                                 <a href="#"
-                                    class="uk-button uk-button-link">
+                                 <a href="{{ $listing->company->website }}"
+                                    class="uk-button uk-button-link uk-margin-top"
+                                    target="_blank">
                                      <span class="uk-icon"
                                            uk-icon="icon: link"></span>
                                      <span>{{ $listing->company->website }}</span>
@@ -237,14 +245,14 @@
                      <aside class="uk-panel uk-tile uk-tile-muted uk-box-shadow-medium uk-border-rounded">
                          <h3 class="uk-text-bold uk-margin-remove-bottom">Related Jobs</h3>
                          <p class="uk-margin-remove-top uk-text-meta">
-                             10 jobs
+                             {{ $relatedListings->count() }} jobs
                          </p>
                          <div class="uk-grid uk-grid-medium uk-child-width-1-1"
                               uk-grid>
                              @foreach ($relatedListings as $related)
                                  <div>
                                      <div class="uk-panel">
-                                         <a href="{{ route('listing.show', $listing->slug) }}"
+                                         <a href="{{ route('listing.show', $related->slug) }}"
                                             class="uk-link-heading uk-text-bold uk-margin-remove-bottom">
                                              {{ $related->title }}
                                          </a>
