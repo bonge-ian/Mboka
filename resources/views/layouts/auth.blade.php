@@ -3,10 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token"
+          content="{{ csrf_token() }}">
 
     @isset($title)
         <title>{{ config('app.name', 'Laravel') }} - {{ $title }}</title>
@@ -19,35 +21,49 @@
     <script src="{{ mix('js/vendor.js') }}"></script>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;700&display=swap"
+          rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
+    <link rel="stylesheet"
+          href="{{ mix('css/app.css') }}" />
 </head>
 
 <body>
     <div id="app">
         <x-navbar />
 
-        <main class="uk-background-muted" uk-height-viewport="offset-top: true">
-             <aside class="uk-container">
-                @if (session('status'))
+        <main class="uk-background-muted"
+              uk-height-viewport="offset-top: true">
+
+            @if (session('status'))
+                <aside class="uk-container">
                     <div class="uk-margin-top">
                         <x-status-alert />
                     </div>
-                @endif
-            </aside>
+                </aside>
+            @endif
+
             <section class="uk-section">
                 <div class="uk-container">
-                    <div class="uk-flex-center uk-grid uk-grid-stack" uk-grid>
+                    <div class="uk-flex-center uk-grid uk-grid-stack"
+                         uk-grid>
                         <div class="uk-width-1-1 uk-width-5-6@m">
-                            <article class="uk-grid uk-grid-collapse uk-child-width-1-1" uk-grid>
+                            <article class="uk-grid uk-grid-collapse uk-child-width-1-1"
+                                     uk-grid>
                                 <div class="uk-visible@s uk-width-3-5@m  uk-width-1-2@s uk-grid-item-match">
                                     <div class="uk-cover-container">
-                                        <canvas width="572" height="400"></canvas>
-                                        <img data-src="{{ $cover_image }}" alt="{{$cover_image_alt}}" uk-img uk-cover />
+                                        <canvas width="572"
+                                                height="400"></canvas>
+                                        <img data-src="{{ $cover_image }}"
+                                             alt="{{ $cover_image_alt }}"
+                                             uk-img
+                                             uk-cover />
                                     </div>
                                 </div>
                                 <div class="uk-width-2-5@m uk-width-1-2@s  uk-grid-item-match">
