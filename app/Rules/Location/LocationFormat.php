@@ -36,7 +36,7 @@ class LocationFormat implements Rule
      */
     public function passes($attribute, $value)
     {
-        return str_word_count($value) == 2 && str_contains( $value, ',');
+        return str_word_count($value) == 2 && str_contains($value, ',');
     }
 
     /**
@@ -46,6 +46,6 @@ class LocationFormat implements Rule
      */
     public function message()
     {
-        return 'The :attribute must follow the following format "city,country".';
+        return 'The :attribute must follow the following format "City, Country", e.g. Nairobi, Kenya';
     }
 }

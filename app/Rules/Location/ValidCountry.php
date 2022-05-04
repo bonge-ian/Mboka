@@ -29,11 +29,10 @@ class ValidCountry implements Rule
         if (!str_contains($value, ',')) {
             return false;
         }
-        $value = Str::replace(", ", ",", $value);
 
-        $explodedString = explode(",", $value);
-        
-        $country = $explodedString[1];
+        $explodedString = explode(", ", $value);
+
+        $country = ucfirst(trim($explodedString[1]));
 
         return in_array($country, $this->countries());
     }

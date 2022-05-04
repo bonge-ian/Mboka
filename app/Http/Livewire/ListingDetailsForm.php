@@ -95,7 +95,10 @@ class ListingDetailsForm extends Component
 
     public function submit(): void
     {
+        $this->location = $this->formatLocationProperty();
+
         $validated = $this->validate();
+
 
         $this->state->put('listing', Arr::except($validated, 'tags'));
         $this->state->put('tags', $this->unpackTags());
@@ -107,7 +110,7 @@ class ListingDetailsForm extends Component
         $this->resetErrorBag();
     }
 
-    public function unpackTags() : array
+    public function unpackTags(): array
     {
         return explode(
             separator: ',',
@@ -115,7 +118,7 @@ class ListingDetailsForm extends Component
         );
     }
 
-    public function render() : View
+    public function render(): View
     {
         return view('livewire.listing-details-form');
     }
@@ -128,6 +131,13 @@ class ListingDetailsForm extends Component
             null => false,
             default => false
         };
+    }
+
+    protected function formatLocationProperty()
+    {
+        return (!str_contains($this->location, ", "))
+            ? ucwords(Str::replace(",", ", ", $this->location))
+            : ucwords($this->location) ;
     }
 
     protected function rules(): array
