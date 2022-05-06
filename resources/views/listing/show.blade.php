@@ -35,7 +35,7 @@
                              </p>
                          </div>
                          <div class="uk-visible@s">
-                             <a href="{{ $listing->apply_url }}"
+                             <a href="{{ route('listing.apply', $listing->slug) }}"
                                 class="uk-button uk-button-primary uk-border-rounded">Apply</a>
                          </div>
                      </div>
@@ -280,7 +280,7 @@
              </div>
 
              <div class="uk-hidden@s uk-margin">
-                 <a href="{{ $listing->apply_url }}"
+                 <a href="{{ route('listing.apply', $listing->slug) }}"
                     class="uk-button uk-button-primary uk-width-1-1 ">Apply Now</a>
              </div>
          </div>
