@@ -11,6 +11,8 @@ use App\Models\Concerns\HasSlugWithKey;
 use Illuminate\Database\Eloquent\Model;
 use App\Domain\States\ListingStatusEnum;
 use App\Domain\States\EmployeeAvailabilityEnum;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,9 +21,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * @mixin IdeHelperListing
  */
-class Listing extends Model
+class Listing extends Model implements Viewable
 {
     use HasFactory;
+    use InteractsWithViews;
 
     use HasSlugWithKey;
 
@@ -60,7 +63,14 @@ class Listing extends Model
         return $this->belongsTo(
             related: Category::class,
             foreignKey: 'category_id'
+        );
+    }
 
+    public function clicks(): HasMany
+    {
+        return $this->hasMany(
+            related: Click::class,
+            foreignKey: 'listing_id'
         );
     }
 
