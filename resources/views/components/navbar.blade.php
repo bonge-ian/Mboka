@@ -66,15 +66,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            <span uk-icon="sign-out" class="uk-margin-small-right"></span>
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" uk-hidden>
-                                            @csrf
-                                        </form>
+                                       <x-logout/>
                                     </li>
                                 </ul>
                             </div>
