@@ -15,12 +15,19 @@ class ShowListingController extends Controller
     {
         $listing->loadMissing('category', 'company', 'tags', 'owner:id,email');
 
-        $relatedListings = Cache::remember(
+        $relatedListings = $this->getRelatedListings($listing);
+
+        views($listing)->record();
+
+        return view('listing.show', compact('listing', 'relatedListings'));
+    }
+
+    protected function getRelatedListings(Listing $listing): mixed
+    {
+        return Cache::remember(
             key: 'related-listings',
             ttl: now()->addHours(6),
             callback: fn () => $listing->relatedProducts()->get()
         );
-
-        return view('listing.show', compact('listing', 'relatedListings'));
     }
 }
