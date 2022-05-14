@@ -58,10 +58,7 @@ class CreateListing extends Component
             ],
         ]);
 
-
         Session::put('create-listing', $this->state);
-        // Session::flash('create-listing', $this->state);
-        // Session::reflash();
 
         $service = app(CheckoutService::class);
         $redirect = $service($payload);
