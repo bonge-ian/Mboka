@@ -71,8 +71,8 @@
                                     id="category"
                                     class="uk-select uk-border-rounded @error('category') uk-form-danger @enderror">
                                 <option>Choose a category</option>
-                                @foreach ($this->categories as $slug => $name)
-                                    <option value="{{ $slug }}">{{ $name }}</option>
+                                @foreach ($this->categories as $key => $name)
+                                    <option value="{{ $key }}">{{ $name }}</option>
                                 @endforeach
                             </select>
 

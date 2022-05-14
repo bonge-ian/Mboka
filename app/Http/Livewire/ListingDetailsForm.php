@@ -66,7 +66,7 @@ class ListingDetailsForm extends Component
 
     public function getCategoriesProperty()
     {
-        return Category::pluck('name', 'slug');
+        return Category::pluck('name', 'id');
     }
 
     public function getListingTypesProperty()
