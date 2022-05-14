@@ -66,7 +66,7 @@ class ListingDetailsForm extends Component
 
     public function getCategoriesProperty()
     {
-        return Category::all();
+        return Category::pluck('name', 'slug');
     }
 
     public function getListingTypesProperty()
@@ -137,7 +137,7 @@ class ListingDetailsForm extends Component
     {
         return (!str_contains($this->location, ", "))
             ? ucwords(Str::replace(",", ", ", $this->location))
-            : ucwords($this->location) ;
+            : ucwords($this->location);
     }
 
     protected function rules(): array
