@@ -27,6 +27,5 @@ class BladeComponentServiceProvider extends ServiceProvider
         // registering layout components.
         Blade::component('layouts.app', 'app-layout');
         Blade::component('layouts.auth', 'auth-layout');
-        Blade::component('layouts.dashboard', 'dashboard-layout');
     }
 }
