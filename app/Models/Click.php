@@ -22,6 +22,7 @@ class Click extends Model
         'user_agent',
         'ip_address',
         'listing_id',
+        'device_type',
     ];
 
     public function listing(): BelongsTo
