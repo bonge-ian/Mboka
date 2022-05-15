@@ -181,6 +181,7 @@ return [
         App\Providers\BladeComponentServiceProvider::class,
         App\Providers\FakerServiceProvider::class,
         App\Providers\ServicesServiceProvider::class,
+        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
 
     ],
 
