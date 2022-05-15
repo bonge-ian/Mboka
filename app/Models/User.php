@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
- 
+
 use Illuminate\Validation\Rule;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -93,12 +93,11 @@ class User extends Authenticatable
                 'required',
                 'string',
                 Password::min(8)
-                    // ->default(),
-                ->letters()
-                ->mixedCase()
-                ->numbers()
-                ->symbols()
-                ->uncompromised(),
+                    ->letters()
+                    ->mixedCase()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised(),
                 'confirmed'
             ],
         ];
