@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Str;
 use App\Rules\Location\ValidCountry;
 use Illuminate\Validation\Rules\Enum;
 use App\Domain\States\ListingTypeEnum;
@@ -24,9 +23,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Listing extends Model implements Viewable
 {
     use HasFactory;
-    use InteractsWithViews;
-
     use HasSlugWithKey;
+    use InteractsWithViews;
 
     protected $fillable = [
         'employee_availability',
