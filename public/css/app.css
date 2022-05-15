@@ -11006,3 +11006,11 @@ h3 {
 img[data-src][src*="data:image"] {
   background: rgba(0, 0, 0, 0.1);
 }
+
+.listing-header-image {
+  top: -4.6875rem;
+}
+
+.listing-header-details {
+  top: -1.6875rem;
+}

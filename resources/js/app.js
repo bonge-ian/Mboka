@@ -8,7 +8,7 @@
 // import Filter from 'uikit/dist/js/components/filter';
 // import Lightbox from 'uikit/dist/js/components/lightbox';
 // import LightboxPanel from 'uikit/dist/js/components/lightbox-panel';
-import Notification from 'uikit/dist/js/components/notification';
+import Notification from "uikit/dist/js/components/notification";
 // import Parallax from 'uikit/dist/js/components/parallax';
 // import Slider from "uikit/dist/js/components/slider";
 // import SliderParallax from 'uikit/dist/js/components/slider-parallax';
@@ -25,7 +25,7 @@ import UIkitIcons from "uikit/dist/js/uikit-icons";
 // UIkit.component('filter', Filter);
 // UIkit.component('lightbox', Lightbox);
 // UIkit.component('lightboxPanel', LightboxPanel);
-UIkit.component('notification', Notification);
+UIkit.component("notification", Notification);
 // UIkit.component('parallax', Parallax);
 // UIkit.component('slider', Slider);
 // UIkit.component('sliderParallax', SliderParallax);
@@ -87,6 +87,37 @@ UIkit.icon.add({
    <line x1="12" y1="16" x2="12" y2="21"></line>
    <line x1="8" y1="4" x2="16" y2="4"></line>
 </svg>`,
+    circle: `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <desc>Download more icon variants from https://tabler-icons.io/i/circle</desc>
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <circle cx="12" cy="12" r="9"></circle>
+</svg>`,
+    detail: `<svg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' width='24' height='24'><path d="M20 3H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM4 19V5h16l.002 14H4z"></path><path d="M6 7h12v2H6zm0 4h12v2H6zm0 4h6v2H6z"></path></svg>`,
+    analyse: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" ><path d="M2 12h2a7.986 7.986 0 0 1 2.337-5.663 7.91 7.91 0 0 1 2.542-1.71 8.12 8.12 0 0 1 6.13-.041A2.488 2.488 0 0 0 17.5 7C18.886 7 20 5.886 20 4.5S18.886 2 17.5 2c-.689 0-1.312.276-1.763.725-2.431-.973-5.223-.958-7.635.059a9.928 9.928 0 0 0-3.18 2.139 9.92 9.92 0 0 0-2.14 3.179A10.005 10.005 0 0 0 2 12zm17.373 3.122c-.401.952-.977 1.808-1.71 2.541s-1.589 1.309-2.542 1.71a8.12 8.12 0 0 1-6.13.041A2.488 2.488 0 0 0 6.5 17C5.114 17 4 18.114 4 19.5S5.114 22 6.5 22c.689 0 1.312-.276 1.763-.725A9.965 9.965 0 0 0 12 22a9.983 9.983 0 0 0 9.217-6.102A9.992 9.992 0 0 0 22 12h-2a7.993 7.993 0 0 1-.627 3.122z"></path><path d="M12 7.462c-2.502 0-4.538 2.036-4.538 4.538S9.498 16.538 12 16.538s4.538-2.036 4.538-4.538S14.502 7.462 12 7.462zm0 7.076c-1.399 0-2.538-1.139-2.538-2.538S10.601 9.462 12 9.462s2.538 1.139 2.538 2.538-1.139 2.538-2.538 2.538z"></path></svg>`,
+    wallet: `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <desc>Download more icon variants from https://tabler-icons.io/i/wallet</desc>
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
+    <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+    </svg>`,
+    "calender-check": `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" ><path d="M19 4h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm.002 16H5V8h14l.002 12z"></path><path d="m11 17.414 5.707-5.707-1.414-1.414L11 14.586l-2.293-2.293-1.414 1.414z"></path></svg>`,
+    "eye-check": `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <desc>Download more icon variants from https://tabler-icons.io/i/eye-check</desc>
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <circle cx="12" cy="12" r="2"></circle>
+    <path d="M12 19c-4 0 -7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7c-.42 .736 -.858 1.414 -1.311 2.033"></path>
+    <path d="M15 19l2 2l4 -4"></path>
+    </svg>`,
+    click: `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-click" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <desc>Download more icon variants from https://tabler-icons.io/i/click</desc>
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <line x1="3" y1="12" x2="6" y2="12"></line>
+    <line x1="12" y1="3" x2="12" y2="6"></line>
+    <line x1="7.8" y1="7.8" x2="5.6" y2="5.6"></line>
+    <line x1="16.2" y1="7.8" x2="18.4" y2="5.6"></line>
+    <line x1="7.8" y1="16.2" x2="5.6" y2="18.4"></line>
+    <path d="M12 12l9 3l-4 2l-2 4l-3 -9"></path>
+    </svg>`,
 });
 
 window.UIkit = UIkit;
