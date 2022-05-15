@@ -16,7 +16,7 @@ class ListingSeeder extends Seeder
      */
     public function run(): void
     {
-        $listings = Listing::factory()
+        Listing::factory()
             ->count(100)
             ->sequence(
                 fn ($sequence) => [
@@ -26,6 +26,5 @@ class ListingSeeder extends Seeder
                 ]
             )
             ->create();
-
     }
 }
