@@ -7,10 +7,10 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
-    /** 
+    /**
      * @return void
      */
-    public function run() : void
+    public function run(): void
     {
         $this->call([ // must follow this order
             UserSeeder::class,
@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             ListingSeeder::class,
             ListingTagSeeder::class,
+            ClickSeeder::class,
+            ListingViewSeeder::class,
         ]);
     }
 }
