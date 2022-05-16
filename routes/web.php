@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard;
 use App\Http\Livewire\CreateListing;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
@@ -10,9 +11,13 @@ Route::view('/', 'dash');
 
 // Route::get('/', CreateListing::class);
 
-Route::view('dashboard', 'dashboard')
-    ->name('dashboard')
-    ->middleware(['auth', 'verified']);
+Route::prefix('dashboard')
+    ->name('dashboard.')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get('/', Dashboard\IndexController::class)->name('index');
+    });
+
 
 Route::prefix('user')->middleware(['auth', 'verified'])->group(function () {
     Route::view('profile', 'profile.show');

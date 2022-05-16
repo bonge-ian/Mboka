@@ -21,7 +21,9 @@
     <script src="{{ mix('js/vendor.js') }}"></script>
     <script defer
             src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     <!-- Fonts -->
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
@@ -63,19 +65,21 @@
                 <div class="uk-container uk-container-expand">
                     <div class="uk-grid uk-child-width-1-1 uk-grid-medium"
                          uk-grid>
-                        <div class="uk-width-1-5@m">
+                        <div class="uk-width-1-5@m uk-visible@m">
                             <x-dashboard.sidebar />
-
                         </div>
-                        <div class="uk-width-4-5@m">
+                        <x-dashboard.mobile-sidebar />
+
+                        <div class="uk-width-4-5@m uk-grid-item-match">
                             <div
-                                 class="uk-panel uk-tile uk-tile-default uk-box-shadow-medium  uk-border-rounded uk-padding-small-top">
-                                <h1 class="uk-margin-small-top uk-text-bold">{{ $pageTitle ?? '' }}</h1>
+                                 class="uk-panel uk-tile uk-tile-default uk-box-shadow-medium  uk-border-rounded uk-padding-large uk-padding-small-top dashboard-content">
+                                <h1 class="uk-margin-small-top uk-text-bold">{{ $page_title ?? '' }}</h1>
                                 {{ $slot }}
                             </div>
                         </div>
                     </div>
                 </div>
+
             </article>
 
 
