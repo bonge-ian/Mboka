@@ -3409,7 +3409,7 @@ input:out-of-range {
 /*
  * Success
  */
-.uk-label-success {
+.uk-label-success, .uk-label-active {
   background-color: #19eea5;
   color: #fff;
 }
@@ -3436,10 +3436,15 @@ input:out-of-range {
   background-image: linear-gradient(51deg, #1865e0 50%, #199ef2 80%, #16b6f5 100%);
 }
 
-.uk-label-secondary {
+.uk-label-secondary, .uk-label-closed {
   background-color: #0c273a;
   color: #fff;
   background-image: linear-gradient(51deg, #1865e0 0, #199ef2 30%, #16b6f5 50%);
+}
+
+.uk-label-pending {
+  background-color: #e4eaf7;
+  color: #0c273a;
 }
 
 /* ========================================================================
@@ -11013,4 +11018,15 @@ img[data-src][src*="data:image"] {
 
 .listing-header-details {
   top: -1.6875rem;
+}
+
+.dashboard-menu {
+  border-top: 0.1rem solid #0c273a;
+}
+
+.dashboard-content .overview-card {
+  border-radius: 1rem;
+}
+.dashboard-content .uk-label {
+  padding: 0.25rem 0.625rem;
 }

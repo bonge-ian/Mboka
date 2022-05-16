@@ -1,0 +1,13 @@
+.dashboard-menu {
+    border-top: 0.1rem solid $global-secondary-background;
+}
+
+.dashboard-content {
+    .overview-card {
+        border-radius: 1rem;
+    }
+
+    .uk-label {
+        padding: 0.25rem 0.625rem;
+    }
+}

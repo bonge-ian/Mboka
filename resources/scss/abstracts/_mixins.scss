@@ -317,87 +317,87 @@
 
 @mixin hook-padding-misc() {
     .uk-padding-top {
-        padding-top: $padding-padding !important;
+        padding-top: $padding-padding  !important;
     }
 
     .uk-padding-bottom {
-        padding-bottom: $padding-padding !important;
+        padding-bottom: $padding-padding  !important;
     }
 
     .uk-padding-left {
-        padding-left: $padding-padding !important;
+        padding-left: $padding-padding  !important;
     }
 
     .uk-padding-right {
-        padding-right: $padding-padding !important;
+        padding-right: $padding-padding  !important;
     }
 
     .uk-padding-small-top {
-        padding-top: $padding-small-padding !important;
+        padding-top: $padding-small-padding  !important;
     }
 
     .uk-padding-small-bottom {
-        padding-bottom: $padding-small-padding !important;
+        padding-bottom: $padding-small-padding  !important;
     }
 
     .uk-padding-small-left {
-        padding-left: $padding-small-padding !important;
+        padding-left: $padding-small-padding  !important;
     }
 
     .uk-padding-small-vertical {
-        padding-top: $padding-small-padding !important;
-        padding-bottom: $padding-small-padding !important;
+        padding-top: $padding-small-padding  !important;
+        padding-bottom: $padding-small-padding  !important;
     }
 
     .uk-padding-small-horizontal {
-        padding-left: $padding-small-padding !important;
-        padding-right: $padding-small-padding !important;
+        padding-left: $padding-small-padding  !important;
+        padding-right: $padding-small-padding  !important;
     }
 
     .uk-padding-small-right {
-        padding-right: $padding-small-padding !important;
+        padding-right: $padding-small-padding  !important;
     }
 
     .uk-padding-medium-top {
-        padding-top: $global-medium-gutter !important;
+        padding-top: $global-medium-gutter  !important;
     }
 
     .uk-padding-medium-bottom {
-        padding-bottom: $global-medium-gutter !important;
+        padding-bottom: $global-medium-gutter  !important;
     }
 
     .uk-padding-medium-left {
-        padding-left: $global-medium-gutter !important;
+        padding-left: $global-medium-gutter  !important;
     }
 
     .uk-padding-medium-right {
-        padding-right: $global-medium-gutter !important;
+        padding-right: $global-medium-gutter  !important;
     }
 
     .uk-padding-medium-vertical {
-        padding-top: $global-medium-gutter !important;
-        padding-bottom: $global-medium-gutter !important;
+        padding-top: $global-medium-gutter  !important;
+        padding-bottom: $global-medium-gutter  !important;
     }
 
     .uk-padding-medium-horizontal {
-        padding-left: $global-medium-gutter !important;
-        padding-right: $global-medium-gutter !important;
+        padding-left: $global-medium-gutter  !important;
+        padding-right: $global-medium-gutter  !important;
     }
 
     .uk-padding-large-top {
-        padding-top: $padding-large-padding !important;
+        padding-top: $padding-large-padding  !important;
     }
 
     .uk-padding-large-bottom {
-        padding-bottom: $padding-large-padding !important;
+        padding-bottom: $padding-large-padding  !important;
     }
 
     .uk-padding-large-left {
-        padding-left: $padding-large-padding !important;
+        padding-left: $padding-large-padding  !important;
     }
 
     .uk-padding-large-right {
-        padding-right: $padding-large-padding !important;
+        padding-right: $padding-large-padding  !important;
     }
 
     @media (min-width: $breakpoint-large) {
@@ -428,7 +428,7 @@
 
 @mixin hook-text-misc() {
     .uk-text-white {
-        color: $global-inverse-color !important;
+        color: $global-inverse-color  !important;
     }
 }
 
@@ -450,6 +450,20 @@
         color: $global-inverse-color;
         background-image: $secondary-linear-gradient;
     }
+
+    .uk-label-active {
+        @extend .uk-label-success;
+    }
+
+    .uk-label-pending {
+        background-color: $global-muted-background;
+        color: $global-secondary-background;
+    }
+
+    .uk-label-closed {
+        @extend .uk-label-secondary
+    }
+
 }
 
 @mixin hook-background-misc() {
