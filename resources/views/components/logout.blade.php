@@ -5,14 +5,14 @@
  @if ($mobile)
      <a href="{{ route('logout') }}"
         class="uk-icon"
-        uk-icon="icon: log-out-circle;"
+        uk-icon="icon: logout-circle;"
         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 
      </a>
  @else
      <a href="{{ route('logout') }}"
         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-         <span uk-icon="icon: log-out-circle;"
+         <span uk-icon="icon: logout-circle;"
                class="uk-margin-small-right"></span>
          Logout
      </a>
