@@ -5,6 +5,7 @@ use App\Http\Livewire\CreateListing;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ShowListingController;
+use App\Http\Livewire\Dashboard\ManageListings;
 use App\Http\Controllers\ApplyListingController;
 
 Route::view('/', 'dash');
@@ -16,6 +17,8 @@ Route::prefix('dashboard')
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', Dashboard\IndexController::class)->name('index');
+        Route::get('/listings', ManageListings::class)->name('listings.index');
+        // Route::get('{listings:slug}', ShowListingController::class)->name('listings.show');
     });
 
 
