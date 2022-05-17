@@ -10,7 +10,7 @@
 // import LightboxPanel from 'uikit/dist/js/components/lightbox-panel';
 import Notification from "uikit/dist/js/components/notification";
 // import Parallax from 'uikit/dist/js/components/parallax';
-// import Slider from "uikit/dist/js/components/slider";
+import Slider from "uikit/dist/js/components/slider";
 // import SliderParallax from 'uikit/dist/js/components/slider-parallax';
 // import Slideshow from "uikit/dist/js/components/slideshow";
 // import SlideshowParallax from "uikit/dist/js/components/slideshow-parallax";
@@ -27,7 +27,7 @@ import UIkitIcons from "uikit/dist/js/uikit-icons";
 // UIkit.component('lightboxPanel', LightboxPanel);
 UIkit.component("notification", Notification);
 // UIkit.component('parallax', Parallax);
-// UIkit.component('slider', Slider);
+UIkit.component('slider', Slider);
 // UIkit.component('sliderParallax', SliderParallax);
 // UIkit.component('slideshow', Slideshow);
 // UIkit.component("slideshowParallax", SlideshowParallax);
@@ -120,6 +120,8 @@ UIkit.icon.add({
     </svg>`,
     "home-icon": `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm9-8.586 6 6V15l.001 5H6v-9.586l6-6z"></path><path d="M12 18c3.703 0 4.901-3.539 4.95-3.689l-1.9-.621c-.008.023-.781 2.31-3.05 2.31-2.238 0-3.02-2.221-3.051-2.316l-1.899.627C7.099 14.461 8.297 18 12 18z"></path></svg>`,
     "logout-circle": `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m2 12 5 4v-3h9v-2H7V8z"></path><path d="M13.001 2.999a8.938 8.938 0 0 0-6.364 2.637L8.051 7.05c1.322-1.322 3.08-2.051 4.95-2.051s3.628.729 4.95 2.051 2.051 3.08 2.051 4.95-.729 3.628-2.051 4.95-3.08 2.051-4.95 2.051-3.628-.729-4.95-2.051l-1.414 1.414c1.699 1.7 3.959 2.637 6.364 2.637s4.665-.937 6.364-2.637c1.7-1.699 2.637-3.959 2.637-6.364s-.937-4.665-2.637-6.364a8.938 8.938 0 0 0-6.364-2.637z"></path></svg>`,
+    "briefcase-alt": `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M20 6h-3V4c0-1.103-.897-2-2-2H9c-1.103 0-2 .897-2 2v2H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V8c0-1.103-.897-2-2-2zm-5-2v2H9V4h6zM4 8h16v4h-3v-2h-2v2H9v-2H7v2H4V8zm0 11v-5h3v2h2v-2h6v2h2v-2h3.001v5H4z"></path></svg>`,
+    hourglass: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M19 22h1v-2h-1v-1a7.014 7.014 0 0 0-3.433-6.02c-.355-.21-.567-.547-.567-.901v-.158c0-.354.212-.691.566-.9A7.016 7.016 0 0 0 19 5V4h1V2H4v2h1v1a7.016 7.016 0 0 0 3.434 6.021c.354.209.566.545.566.9v.158c0 .354-.212.691-.566.9A7.016 7.016 0 0 0 5 19v1H4v2h15zM17 4v1a5.005 5.005 0 0 1-1.004 3H8.004A5.005 5.005 0 0 1 7 5V4h10zM9.45 14.702c.971-.574 1.55-1.554 1.55-2.623V12h2v.079c0 1.068.579 2.049 1.551 2.623A4.98 4.98 0 0 1 16.573 17H7.427a4.977 4.977 0 0 1 2.023-2.298z"></path></svg>`,
 });
 
 window.UIkit = UIkit;
