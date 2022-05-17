@@ -1,4 +1,11 @@
 <x-dashboard-layout title="{{ $user->name }} Dashboard">
+    @push('vendor')
+        <script defer
+                src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+        <script defer
+                src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    @endpush
+
     <x-slot:page_title>
         Dashboard
     </x-slot:page_title>
@@ -11,7 +18,7 @@
                                       description="Jobs Viewed"
                                       icon="briefcase"
                                       description_text_color="warning"
-                                      class="uk-background-primary"/>
+                                      class="uk-background-primary" />
             </div>
         </div>
         <div>
@@ -20,18 +27,20 @@
                                       description="Jobs Clicks"
                                       icon="click"
                                       description_text_color="success"
-                                      class="uk-background-secondary"/>
+                                      class="uk-background-secondary" />
             </div>
         </div>
     </header>
 
 
-    <livewire:listings-chart :user_id="$user->id"
-                             chart_type="multiline" />
+    <div class="uk-width-1-1 uk-visible@m uk-margin-medium">
+        <livewire:listings-chart :user_id="$user->id"
+                                 chart_type="multiline" />
+    </div>
 
 
     <footer
-            class="uk-width-1-1 uk-panel uk-tile uk-padding-small-vertical uk-tile-default uk-border-rounded uk-overflow-auto uk-box-shadow-medium">
+            class="uk-width-1-1 uk-panel uk-tile uk-padding-small-vertical uk-tile-default uk-border-rounded uk-overflow-auto uk-box-shadow-medium uk-margin-medium">
         <table class="uk-table uk-table-divider uk-table-responsive uk-table-middle">
             <caption class="uk-text-lead uk-text-bold uk-text-large">Latest Listings</caption>
             <thead>
@@ -86,5 +95,7 @@
             </tbody>
         </table>
     </footer>
-
+    @push('scripts')
+        @livewireChartsScripts
+    @endpush
 </x-dashboard-layout>

@@ -19,10 +19,7 @@
     <!-- Scripts -->
     <script src="{{ mix('js/manifest.js') }}"></script>
     <script src="{{ mix('js/vendor.js') }}"></script>
-    <script defer
-            src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
-    <script defer
-            src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    @stack('vendor')
 
     <!-- Fonts -->
     <link rel="preconnect"
@@ -65,7 +62,7 @@
                 <div class="uk-container uk-container-expand">
                     <div class="uk-grid uk-child-width-1-1 uk-grid-medium"
                          uk-grid>
-                        <div class="uk-width-1-5@m uk-visible@m">
+                        <div class="uk-width-1-5@m uk-visible@m uk-first-column">
                             <x-dashboard.sidebar />
                         </div>
                         <x-dashboard.mobile-sidebar />
@@ -90,7 +87,7 @@
     <!-- App -->
     <script src="{{ mix('js/app.js') }}"></script>
     <livewire:scripts />
-    @livewireChartsScripts
+
     <script>
         document.addEventListener("livewire:load", () => {
             window.livewire.hook("element.updated", (el, component) => {
@@ -129,6 +126,7 @@
 
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>
