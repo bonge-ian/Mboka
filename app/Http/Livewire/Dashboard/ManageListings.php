@@ -14,7 +14,7 @@ class ManageListings extends Component
 {
     use WithPagination;
 
-    public User $user;
+    public int $user_id;
 
     public string $sort = 'desc';
 
@@ -22,9 +22,9 @@ class ManageListings extends Component
 
     protected $paginationTheme = 'uikit';
 
-    public function mount(Request $request)
+    public function mount()
     {
-        $this->user = $request->user();
+        $this->user_id = auth()->id();
     }
 
     public function render()
@@ -61,21 +61,21 @@ class ManageListings extends Component
             ->where(
                 column: 'user_id',
                 operator: '=',
-                value: $this->user->id
+                value: $this->user_id
             );
     }
 
     protected function applyStatusFilter(Builder $query)
     {
-        if (is_null($this->status)) {
-            return;
-        }
-
-        $query->where(
-            column: 'status',
-            operator: '=',
-            value: $this->status,
+        $query->when(
+            value: !is_null($this->status),
+            callback: fn (Builder $query) => $query->where(
+                column: 'status',
+                operator: '=',
+                value: $this->status,
+            )
         );
+
         $this->resetPage();
     }
 
