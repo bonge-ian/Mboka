@@ -14,14 +14,14 @@
             <li class="uk-nav-divider"></li>
             <li class="uk-nav-header">Manage Listings</li>
             <li>
-                <a href="#">
+                <a href="{{ route('dashboard.listings.index') }}">
                     <span class="uk-margin-small-right"
                           uk-icon="icon: briefcase"></span>
                     Listings
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('listing.create') }}">
                     <span class="uk-margin-small-right"
                           uk-icon="icon: plus-circle;ratio: 1.2"></span>
                     Create new listing

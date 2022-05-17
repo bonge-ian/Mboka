@@ -9,13 +9,13 @@
             </a>
         </li>
         <li>
-            <a href="#"
+            <a href="{{ route('dashboard.listings.index') }}"
                uk-icon="icon: briefcase"
                uk-tooltip="title: Manage listings">
             </a>
         </li>
         <li>
-            <a href="#"
+            <a href="{{ route('listing.create') }}"
                class="uk-text-secondary"
                uk-icon="icon: plus-circle;ratio: 1.2"
                uk-tooltip="title: New Listing">
