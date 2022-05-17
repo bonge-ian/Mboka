@@ -3,11 +3,10 @@
 namespace App\Providers;
 
 use Faker\{Factory, Generator};
-use App\Faker\Provider\en_KE\Person;
-use App\Faker\Provider\en_KE\Address;
-use App\Faker\Provider\en_KE\Internet;
+use Mmo\Faker\LoremSpaceProvider;
 use Illuminate\Support\ServiceProvider;
 use App\Faker\Provider\en_KE\PhoneNumber;
+use App\Faker\Provider\en_KE\{Address, Internet, Person};
 
 class FakerServiceProvider extends ServiceProvider
 {
@@ -23,6 +22,8 @@ class FakerServiceProvider extends ServiceProvider
             $faker->addProvider(new Person($faker));
             $faker->addProvider(new PhoneNumber($faker));
             $faker->addProvider(new Internet($faker));
+            $faker->addProvider(new LoremSpaceProvider($faker));
+
             return $faker;
         });
     }

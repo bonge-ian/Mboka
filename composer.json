@@ -26,6 +26,7 @@
         "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
+        "mmo/faker-images": "^0.6.0",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
         "pestphp/pest-plugin-laravel": "^1.2",
