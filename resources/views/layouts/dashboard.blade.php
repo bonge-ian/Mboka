@@ -69,8 +69,12 @@
 
                         <div class="uk-width-4-5@m uk-grid-item-match">
                             <div
-                                 class="uk-panel uk-tile uk-tile-default uk-box-shadow-medium  uk-border-rounded uk-padding-large uk-padding-small-top dashboard-content">
-                                <h1 class="uk-margin-small-top uk-text-bold">{{ $page_title ?? '' }}</h1>
+                                 class="uk-panel uk-tile uk-tile-default uk-box-shadow-medium
+                                 uk-border-rounded uk-padding-large uk-padding-small-top dashboard-content">
+                                @isset($page_title)
+                                    <h1 class="uk-margin-small-top uk-text-bold">{{ $page_title }}</h1>
+                                @endisset
+
                                 {{ $slot }}
                             </div>
                         </div>

@@ -18,7 +18,7 @@ Route::prefix('dashboard')
     ->group(function () {
         Route::get('/', Dashboard\IndexController::class)->name('index');
         Route::get('/listings', ManageListings::class)->name('listings.index');
-        // Route::get('{listings:slug}', ShowListingController::class)->name('listings.show');
+        Route::get('/listings/{listing:slug}', Dashboard\Listings\ShowListingController::class)->name('listings.show');
     });
 
 

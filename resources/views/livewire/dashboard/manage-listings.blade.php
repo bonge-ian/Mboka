@@ -101,7 +101,7 @@
                         <div
                              class="uk-card uk-card-default uk-card-body uk-card-small uk-border-rounded uk-box-shadow-medium">
                             <h3 class="uk-text-bold uk-cart-title uk-margin-remove-vertical">
-                                <a href="{{-- route('dashboard.listings.show', $listing->slug) --}}"
+                                <a href="{{ route('dashboard.listings.show', $listing->slug) }}"
                                    class="uk-link-heading">
                                     {{ $listing->title }}
                                 </a>

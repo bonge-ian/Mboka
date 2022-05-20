@@ -2,13 +2,13 @@
        uk-sticky="position: bottom;end: true; animation: uk-animation-slide-bottom;start: .uk-grid">
     <ul class="uk-subnav uk-subnav-pill uk-child-width-expand"
         uk-margin>
-        <li>
+        <li class="{{ request()->routeIs('dashboard.index') ? 'uk-active' : '' }}">
             <a href="{{ route('dashboard.index') }}"
                uk-icon="icon: home-icon"
                uk-tooltip="title: Home">
             </a>
         </li>
-        <li>
+        <li class="{{ request()->routeIs('dashboard.listings.index') ? 'uk-active' : '' }}">
             <a href="{{ route('dashboard.listings.index') }}"
                uk-icon="icon: briefcase"
                uk-tooltip="title: Manage listings">
