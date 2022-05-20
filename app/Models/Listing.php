@@ -10,6 +10,7 @@ use App\Models\Concerns\HasSlugWithKey;
 use Illuminate\Database\Eloquent\Model;
 use App\Domain\States\ListingStatusEnum;
 use App\Domain\States\EmployeeAvailabilityEnum;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -25,6 +26,8 @@ class Listing extends Model implements Viewable
     use HasFactory;
     use HasSlugWithKey;
     use InteractsWithViews;
+
+    protected $appends = ['expired_at'];
 
     protected $fillable = [
         'employee_availability',
@@ -151,5 +154,12 @@ class Listing extends Model implements Viewable
             'perks' => 'required|string|min:10',
             'title' => 'required|string|min:4',
         ];
+    }
+
+    protected function expiredAt(): Attribute
+    {
+        return Attribute::make(
+            fn () => $this->created_at->addMonth()
+        );
     }
 }
