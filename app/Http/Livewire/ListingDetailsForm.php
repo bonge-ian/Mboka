@@ -9,11 +9,14 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
+use App\Http\Livewire\Concerns\FormatLocationProperty;
 use App\Http\Livewire\Concerns\AddOrEditListingHelpers;
 
 class ListingDetailsForm extends Component
 {
     use AddOrEditListingHelpers;
+
+    use FormatLocationProperty;
 
     public Collection $state;
 
@@ -66,7 +69,7 @@ class ListingDetailsForm extends Component
 
     public function submit(): void
     {
-        $this->location = $this->formatLocationProperty();
+        $this->location = $this->formatLocationProperty($this->location);
 
         $validated = $this->validate();
 

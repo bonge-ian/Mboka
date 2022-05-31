@@ -5,14 +5,18 @@ namespace App\Http\Livewire;
 use App\Models\Company;
 use Livewire\Component;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Livewire\Concerns\FormatLocationProperty;
 
 class CompanyDetailsForm extends Component
 {
     use WithFileUploads;
+
+    use FormatLocationProperty;
 
     public int $step = 2;
 
@@ -30,7 +34,7 @@ class CompanyDetailsForm extends Component
 
     public bool $isAlreadyUploaded = false;
 
-    public function mount() : void
+    public function mount(): void
     {
         if (!empty($this->state->get('company'))) {
             $this->fill([
@@ -51,7 +55,7 @@ class CompanyDetailsForm extends Component
         }
     }
 
-    public function clearUploaded() : void
+    public function clearUploaded(): void
     {
         $this->isAlreadyUploaded = false;
 
@@ -62,8 +66,10 @@ class CompanyDetailsForm extends Component
         $this->reset('logo');
     }
 
-    public function submit() : void
+    public function submit(): void
     {
+        $this->headquarters = $this->formatLocationProperty($this->headquarters);
+
         if (!$this->isAlreadyUploaded) {
             $validated = $this->validate();
 
@@ -85,7 +91,7 @@ class CompanyDetailsForm extends Component
         return Company::rules();
     }
 
-    public function render() : View
+    public function render(): View
     {
         return view('livewire.company-details-form');
     }

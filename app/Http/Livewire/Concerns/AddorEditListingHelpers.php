@@ -50,10 +50,4 @@ trait AddOrEditListingHelpers
         };
     }
 
-    protected function formatLocationProperty()
-    {
-        return (!str_contains($this->location, ", "))
-            ? ucwords(Str::replace(",", ", ", $this->location))
-            : ucwords($this->location);
-    }
 }

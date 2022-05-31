@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use App\Http\Livewire\RegisterForm;
 use function Pest\Livewire\livewire;
 
@@ -11,7 +12,7 @@ it("fills the component's properties on load when state isn't empty", function (
         'customer' => [
             'name' => 'Donar Kill',
             'email' => 'email@gmail.com',
-            'password' => 'Password',
+            'password' => bcrypt(Str::random()),
         ]
     ]);
 
@@ -27,7 +28,7 @@ it("requires all fields to be filled", function () {
         'customer' => [
             'name' => 'Donar Kill',
             'email' => 'email@gmail.com',
-            'password' => 'Password',
+            'password' => bcrypt(Str::random()),
         ]
     ]);
 
@@ -46,7 +47,7 @@ it("emits advanceToStep event", function () {
         'customer' => [
             'name' => 'Donar Kill',
             'email' => 'email@gmail.com',
-            'password' => 'Password',
+            'password' => bcrypt(Str::random()),
         ]
     ]);
 
@@ -65,7 +66,7 @@ it("emits mergeState event", function () {
         'customer' => [
             'name' => 'Donar Kill',
             'email' => 'email@gmail.com',
-            'password' => 'Password',
+            'password' => bcrypt(Str::random()),
         ]
     ]);
 
@@ -84,7 +85,7 @@ it("requires fullname to be entered", function () {
         'customer' => [
             'name' => 'Donar',
             'email' => 'email@gmail.com',
-            'password' => 'Password',
+            'password' => bcrypt(Str::random()),
         ]
     ]);
 

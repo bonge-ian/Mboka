@@ -38,7 +38,7 @@ it("requires all fields to be filled", function () {
         ->set('bio', 'my bio linkyo')
         ->set('name', 'apple inc')
         ->set('website', 'https://dfd.com')
-        ->set('headquarters', 'foo')
+        ->set('headquarters', 'Foo, Kenya')
         ->set('logo', $file)
         ->call('submit')
         ->assertHasNoErrors();
@@ -57,7 +57,7 @@ it("company logo is uploaded", function () {
         ->set('bio', 'my bio linkyo')
         ->set('name', 'apple inc')
         ->set('website', 'https://dfd.com')
-        ->set('headquarters', 'foo')
+        ->set('headquarters', 'Foo, Kenya')
         ->set('isAlreadyUploaded', false)
         ->set('logo', $file)
         ->call('submit');
@@ -77,7 +77,7 @@ it("emits advanceToStep event", function () {
         ->set('bio', 'my bio linkyo')
         ->set('name', 'apple inc')
         ->set('website', 'https://dfd.com')
-        ->set('headquarters', 'foo')
+        ->set('headquarters', 'Foo, Kenya')
         ->set('logo', $file)
         ->call('submit')
         ->assertEmitted('advanceToStep');
@@ -95,7 +95,7 @@ it("emits mergeState event", function () {
         ->set('bio', 'my bio linkyo')
         ->set('name', 'apple inc')
         ->set('website', 'https://dfd.com')
-        ->set('headquarters', 'foo')
+        ->set('headquarters', 'Foo, Kenya')
         ->set('logo', $file)
         ->call('submit')
         ->assertEmitted('mergeState');
