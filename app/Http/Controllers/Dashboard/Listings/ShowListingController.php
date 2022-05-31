@@ -14,7 +14,8 @@ class ShowListingController extends Controller
         $listing->loadMissing([
             'category:id,name,slug',
             'company:id,logo',
-            'payments:id,code,amount,status,payment_method'
+            'payments:id,code,amount,status,payment_method',
+            'tags:id,name'
         ])->loadCount(['views', 'clicks']);
 
         $user = $request->user();
