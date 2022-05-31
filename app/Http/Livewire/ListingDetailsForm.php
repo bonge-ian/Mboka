@@ -4,17 +4,17 @@ namespace App\Http\Livewire;
 
 use App\Models\Listing;
 use Livewire\Component;
-use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
-use App\Domain\States\ListingTypeEnum;
-use App\Domain\States\EmployeeAvailabilityEnum;
+use App\Http\Livewire\Concerns\AddOrEditListingHelpers;
 
 class ListingDetailsForm extends Component
 {
+    use AddOrEditListingHelpers;
+
     public Collection $state;
 
     public int $step = 1;
@@ -43,7 +43,6 @@ class ListingDetailsForm extends Component
 
     public function mount()
     {
-
         if (!empty($this->state->get('listing'))) {
             $this->fill([
                 'perks' => data_get($this->state, 'listing.perks'),
@@ -64,34 +63,6 @@ class ListingDetailsForm extends Component
         }
     }
 
-    public function getCategoriesProperty()
-    {
-        return Category::pluck('name', 'id');
-    }
-
-    public function getListingTypesProperty()
-    {
-        return ListingTypeEnum::cases();
-    }
-
-    public function getEmployeeAvailabilitiesProperty()
-    {
-        return EmployeeAvailabilityEnum::cases();
-    }
-
-    public function getShowOnsiteDaysProperty()
-    {
-        if (empty($this->employee_availability)) {
-            return false;
-        }
-
-        return $this->processShowOnsiteDays($this->employee_availability);
-    }
-
-    public function updatedEmployeeAvailability(string $value)
-    {
-        $this->showOnsiteDays = $this->processShowOnsiteDays($value);
-    }
 
     public function submit(): void
     {
@@ -121,23 +92,6 @@ class ListingDetailsForm extends Component
     public function render(): View
     {
         return view('livewire.listing-details-form');
-    }
-
-    protected function processShowOnsiteDays(string $value): bool
-    {
-        return match (EmployeeAvailabilityEnum::tryFrom($value)) {
-            EmployeeAvailabilityEnum::HYBRID => true,
-            EmployeeAvailabilityEnum::ONSITE => true,
-            null => false,
-            default => false
-        };
-    }
-
-    protected function formatLocationProperty()
-    {
-        return (!str_contains($this->location, ", "))
-            ? ucwords(Str::replace(",", ", ", $this->location))
-            : ucwords($this->location);
     }
 
     protected function rules(): array
