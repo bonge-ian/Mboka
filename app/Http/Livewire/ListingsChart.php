@@ -10,15 +10,14 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use CyrildeWit\EloquentViewable\View;
 use Illuminate\Database\Query\Expression;
+use App\Http\Livewire\Concerns\ChartSetup;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Asantibanez\LivewireCharts\Models\BaseChartModel;
 use Asantibanez\LivewireCharts\Facades\LivewireCharts;
 
 class ListingsChart extends Component
 {
-    public int $user_id;
-
-    public bool $readyToLoad = false;
+    use ChartSetup;
 
     public string $chart_type = '';
 
@@ -26,8 +25,6 @@ class ListingsChart extends Component
         'clicks' => '#1991ee',
         'views' => '#0c273a',
     ];
-
-    protected ?BaseChartModel $chart_model = null;
 
     public function mount(int $user_id, string $chart_type)
     {
