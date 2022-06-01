@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             ListingSeeder::class,
             ListingTagSeeder::class,
+            PaymentSeeder::class,
             ClickSeeder::class,
             ListingViewSeeder::class,
         ]);
