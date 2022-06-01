@@ -1,22 +1,22 @@
 <div class="uk-margin-top">
     @if ($paginator->hasPages())
         <nav role="navigation"
-             aria-label="Pagination Navigation">
+             aria-label="Pagination Navigation"
+             class="uk-width-1-1">
             <ul class="uk-pagination">
                 {{-- Previous Page Link --}}
                 @if ($paginator->onFirstPage())
                     <li class="uk-disabled">
                         <span>
-                           <span class="uk-margin-small-right"
-                                      uk-pagination-previous></span>
+                            <span class="uk-margin-small-right"
+                                  uk-pagination-previous></span>
                             Previous
                         </span>
                     </li>
                 @else
                     @if (method_exists($paginator, 'getCursorName'))
                         <li>
-                            <a href="#"
-                               dusk="previousPage"
+                            <a dusk="previousPage"
                                wire:click="setPage('{{ $paginator->previousCursor()->encode() }}','{{ $paginator->getCursorName() }}')"
                                wire:loading.attr="disabled">
                                 <span class="uk-margin-small-right"
@@ -26,8 +26,7 @@
                         </li>
                     @else
                         <li>
-                            <a href="#"
-                               wire:click="previousPage('{{ $paginator->getPageName() }}')"
+                            <a wire:click="previousPage('{{ $paginator->getPageName() }}')"
                                wire:loading.attr="disabled"
                                dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}">
                                 <span class="uk-margin-small-right"
@@ -43,20 +42,14 @@
                 @if ($paginator->hasMorePages())
                     @if (method_exists($paginator, 'getCursorName'))
                         <li class="uk-margin-auto-left">
-                            <a href="#"
-                               dusk="nextPage"
-                               wire:click="setPage('{{ $paginator->nextCursor()->encode() }}','{{ $paginator->getCursorName() }}')"
-                               wire:loading.attr="disabled">
+                            <a dusk="nextPage" wire:click="setPage('{{$paginator->nextCursor()->encode()}}','{{ $paginator->getCursorName() }}')" wire:loading.attr="disabled" >
                                 Next <span class="uk-margin-small-left"
                                       uk-pagination-next></span>
                             </a>
                         </li>
                     @else
                         <li class="uk-margin-auto-left">
-                            <a href="#"
-                               wire:click="nextPage('{{ $paginator->getPageName() }}')"
-                               wire:loading.attr="disabled"
-                               dusk="nextPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}">
+                            <a wire:click="nextPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled" dusk="nextPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}">
                                 Next <span class="uk-margin-small-left"
                                       uk-pagination-next></span>
                             </a>
@@ -64,11 +57,11 @@
                     @endif
                 @else
                     <li class="uk-margin-auto-left uk-disabled">
-                      <span>
-                          Next
-                          <span class="uk-margin-small-left"
-                              uk-pagination-next></span>
-                      </span>
+                        <span>
+                            Next
+                            <span class="uk-margin-small-left"
+                                  uk-pagination-next></span>
+                        </span>
                     </li>
 
                 @endif

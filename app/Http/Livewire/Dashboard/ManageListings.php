@@ -20,11 +20,19 @@ class ManageListings extends Component
 
     public ?string $status = null;
 
-    protected $paginationTheme = 'uikit';
+    public function paginationSimpleView()
+    {
+        return 'vendor.livewire.simple-uikit';
+    }
 
     public function mount()
     {
         $this->user_id = auth()->id();
+    }
+
+    public function updatedStatus()
+    {
+        $this->resetPage();
     }
 
     public function render()
@@ -34,7 +42,7 @@ class ManageListings extends Component
         $this->applyStatusFilter($listings);
         $this->applyOrderFilter($listings);
 
-        $listings = $listings->simplePaginate(5);
+        $listings = $listings->simplePaginate();
 
         return view('livewire.dashboard.manage-listings', compact('listings'))
             ->layout('layouts.dashboard', [
@@ -75,8 +83,6 @@ class ManageListings extends Component
                 value: $this->status,
             )
         );
-
-        $this->resetPage();
     }
 
     protected function applyOrderFilter(Builder $query)
