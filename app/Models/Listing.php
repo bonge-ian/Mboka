@@ -159,7 +159,7 @@ class Listing extends Model implements Viewable
     protected function expiredAt(): Attribute
     {
         return Attribute::make(
-            fn () => $this->created_at->addMonth()
+            fn () => $this->created_at?->addMonth()
         );
     }
 }
