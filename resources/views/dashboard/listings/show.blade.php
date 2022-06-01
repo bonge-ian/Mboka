@@ -1,4 +1,5 @@
 <x-dashboard-layout title="{{ $listing->title }}">
+
     <section class="uk-tile uk-padding-small-horizontal">
         <header class="uk-grid uk-flex-middle uk-grid-medium"
                 uk-grid>
@@ -109,6 +110,25 @@
 
                                         <h3 class="uk-text-bold uk-margin-remove-bottom">Experience</h3>
                                         <p>{{ $listing->experience }}</p>
+
+                                        <h3 class="uk-text-bold uk-margin-remove-bottom">Tools/Stack</h3>
+                                        <div class="uk-placeholder uk-padding-small-vertical">
+                                            <div class="uk-grid uk-flex-middle uk-grid-small uk-child-width-auto">
+                                                @forelse ($listing->tags as $tag)
+                                                    <div>
+                                                        <div
+                                                             class="uk-label uk-background-muted  uk-text-emphasis uk-border-rounded uk-text-capitalize">
+                                                            {{ $tag->name }}
+                                                        </div>
+                                                    </div>
+                                                @empty
+                                                    <div class="uk-panel uk-placeholder">
+                                                        <p>No tools/tech stack listed!</p>
+                                                    </div>
+                                                @endforelse
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +141,7 @@
                                         <div class="uk-grid uk-grid-small uk-child-width-1-1"
                                              uk-grid>
                                             <div>
-                                                <div class="uk-grid uk-grid-small uk-flex-middle"
+                                                <div class="uk-grid uk-grid-small uk-flex-middle uk-child-width-expand"
                                                      uk-grid>
                                                     <div class="uk-width-auto">
                                                         <a href="#edit-listing"
@@ -140,7 +160,7 @@
                                                 </div>
                                             </div>
                                             <div>
-                                                <div class="uk-grid uk-grid-small uk-flex-middle"
+                                                <div class="uk-grid uk-grid-small uk-flex-middle uk-child-width-expand"
                                                      uk-grid>
                                                     <div class="uk-width-auto">
                                                         <span class="uk-icon"
@@ -159,7 +179,7 @@
                                                 </div>
                                             </div>
                                             <div>
-                                                <div class="uk-grid uk-grid-small uk-flex-middle"
+                                                <div class="uk-grid uk-grid-small uk-flex-middle uk-child-width-expand"
                                                      uk-grid>
                                                     <div class="uk-width-auto">
                                                         <span class="uk-icon"
@@ -176,8 +196,31 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div>
+                                                <div class="uk-grid uk-grid-small uk-flex-middle uk-child-width-expand"
+                                                     uk-grid>
+                                                    <div class="uk-width-auto">
+                                                        <span class="uk-icon"
+                                                              uk-icon="icon: link"></span>
+                                                    </div>
+                                                    <div class="uk-width-expand">
+                                                        <h5 class="uk-margin-remove-bottom uk-text-bold uk-text-break">
+                                                            {{ $listing->apply_url }}
+                                                        </h5>
+                                                        <p
+                                                           class="uk-text-muted uk-text-small  uk-margin-remove-vertical">
+                                                            Application Link
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
+
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -190,7 +233,7 @@
                             <div>
                                 <div class="uk-panel">
                                     <x-dashboard.overview :count="$listing->views_count"
-                                                          description="Jobs Viewed"
+                                                          description="Views"
                                                           icon="briefcase"
                                                           description_text_color="warning"
                                                           class="uk-background-primary" />
@@ -199,7 +242,7 @@
                             <div>
                                 <div class="uk-panel">
                                     <x-dashboard.overview :count="$listing->clicks_count"
-                                                          description="Jobs Clicks"
+                                                          description="Clicks"
                                                           icon="click"
                                                           description_text_color="success"
                                                           class="uk-background-secondary" />
@@ -247,5 +290,5 @@
         </div>
     </section>
 
-
+    <livewire:dashboard.edit-listing :listing="$listing" />
 </x-dashboard-layout>
