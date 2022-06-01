@@ -8,7 +8,7 @@ use App\Http\Controllers\ShowListingController;
 use App\Http\Livewire\Dashboard\ManageListings;
 use App\Http\Controllers\ApplyListingController;
 
-Route::view('/', 'dash');
+// Route::view('/', 'dash');
 
 // Route::get('/', CreateListing::class);
 
@@ -19,6 +19,7 @@ Route::prefix('dashboard')
         Route::get('/', Dashboard\IndexController::class)->name('index');
         Route::get('/listings', ManageListings::class)->name('listings.index');
         Route::get('/listings/{listing:slug}', Dashboard\Listings\ShowListingController::class)->name('listings.show');
+        Route::get('/analytics', Dashboard\AnalyticsController::class)->name('analytics');
     });
 
 

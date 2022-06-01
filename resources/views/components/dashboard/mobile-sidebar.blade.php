@@ -22,7 +22,7 @@
             </a>
         </li>
         <li>
-            <a href="#"
+            <a href="{{ route('dashboard.analytics') }}"
                uk-icon="icon: analyse"
                uk-tooltip="title: Analytics">
             </a>

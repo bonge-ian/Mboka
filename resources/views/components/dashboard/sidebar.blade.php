@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('dashboard.analytics') }}">
                     <span class="uk-margin-small-right"
                           uk-icon="icon: analyse"></span>
                     Analytics

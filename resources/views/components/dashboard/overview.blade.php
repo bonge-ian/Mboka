@@ -1,4 +1,4 @@
-@props(['count', 'icon', 'description', 'description_text_color'])
+@props(['count', 'icon', 'description', 'description_text_color', 'count_size'])
 
 <div
      {{ $attributes->merge(['class' => 'uk-card uk-card-small uk-card-body uk-card-default uk-box-shadow-medium overview-card']) }}>
@@ -9,7 +9,8 @@
                   uk-icon="icon: {{ $icon }};ratio: 1.5"></span>
         </div>
         <div class="uk-width-expand">
-            <h3 class="uk-h1 uk-text-bold uk-margin-remove-vertical uk-text-white">
+            <h3
+                class="{{ $count_size ?? 'uk-h1' }} uk-text-bold uk-margin-remove-vertical uk-text-white uk-text-break">
                 {{ $count }}
             </h3>
             <p class="uk-text-{{ $description_text_color }} uk-margin-remove-top uk-text-large">
