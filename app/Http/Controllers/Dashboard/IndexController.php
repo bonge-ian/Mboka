@@ -3,23 +3,23 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\User;
-use App\Models\Click;
-use App\Models\Listing;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use CyrildeWit\EloquentViewable\View;
-use Illuminate\View\View as BladeView;
+use App\Http\Controllers\Dashboard\Concerns\TotalClicksAndViewsCount;
 
 class IndexController extends Controller
 {
+    use TotalClicksAndViewsCount;
+
     protected User $user;
 
-    public function __invoke(Request $request): BladeView
+    public function __invoke(Request $request): View
     {
         $this->user = $request->user();
 
-        $views_count = $this->getTotalViewsCount();
-        $clicks_count = $this->getTotalClicksCount();
+        $views_count = $this->getTotalViewsCount($this->user->id);
+        $clicks_count = $this->getTotalClicksCount($this->user->id);
         $listings = $this->getLatestTenListings();
         $user = $this->user;
 
@@ -44,28 +44,5 @@ class IndexController extends Controller
             ->limit(10)
             ->latest()
             ->get();
-    }
-
-    protected function getTotalViewsCount(): int
-    {
-        return View::query()
-            ->whereMorphRelation(
-                relation: 'viewable',
-                types: Listing::class,
-                column: 'user_id',
-                operator: '=',
-                value: $this->user->id
-            )->count();
-    }
-
-    protected function getTotalClicksCount(): int
-    {
-        return Click::query()
-            ->whereRelation(
-                relation: 'listing',
-                column: 'user_id',
-                operator: '=',
-                value: $this->user->id
-            )->count();
     }
 }
