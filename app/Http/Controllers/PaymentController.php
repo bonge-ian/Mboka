@@ -94,7 +94,7 @@ class PaymentController extends Controller
         User $user,
         TransactionResponse $transaction
     ): void {
- 
+
         $company = Company::create($request->session()->get('create-listing.company'));
 
         $rawListingData = array_merge(
@@ -111,7 +111,7 @@ class PaymentController extends Controller
 
         $tags = collect($request->session()->get('create-listing.tags'))->map(
             fn ($tag) => Tag::firstOrCreate([
-                'name' => $tag
+                'name' => ucfirst($tag)
             ])
         );
 
