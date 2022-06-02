@@ -20,6 +20,7 @@ Route::prefix('dashboard')
         Route::get('/listings', ManageListings::class)->name('listings.index');
         Route::get('/listings/{listing:slug}', Dashboard\Listings\ShowListingController::class)->name('listings.show');
         Route::get('/analytics', Dashboard\AnalyticsController::class)->name('analytics');
+        Route::get('/transactions', Dashboard\TransactionsController::class)->name('transactions');
     });
 
 
