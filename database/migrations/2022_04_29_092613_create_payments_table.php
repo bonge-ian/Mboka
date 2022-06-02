@@ -20,11 +20,10 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete();
 
-            $table->foreignIdFor(Listing::class)
-                ->nullable()
+            $table->foreignIdFor(Listing::class, 'listing_id')
                 ->index()
                 ->constrained()
-                ->nullOnDelete();
+                ->cascadeOnDelete();
 
             $table->string('code');
             $table->string('payment_method');
