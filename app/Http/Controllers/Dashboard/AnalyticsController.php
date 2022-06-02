@@ -10,10 +10,13 @@ use App\Domain\Helpers\Money;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Collection;
+use App\Http\Controllers\Dashboard\Concerns\TotalExpenditure;
 use App\Http\Controllers\Dashboard\Concerns\TotalClicksAndViewsCount;
 
 class AnalyticsController extends Controller
 {
+    use TotalExpenditure;
+
     use TotalClicksAndViewsCount;
 
     protected User $user;
@@ -22,11 +25,11 @@ class AnalyticsController extends Controller
     {
         $this->user = $request->user();
 
+        $user = $this->user;
         $views_count = $this->getTotalViewsCount($this->user->id);
         $clicks_count = $this->getTotalClicksCount($this->user->id);
+        $total_expenditure = $this->getTotalExpenditure($this->user->id);
         $top_clicks_grouped_by_countries = $this->getTopClicksGroupedByCountries();
-        $user = $this->user;
-        $total_expenditure = $this->getTotalExpenditure();
 
         return view(
             view: 'dashboard.analytics',
@@ -37,19 +40,6 @@ class AnalyticsController extends Controller
                 'total_expenditure',
                 'top_clicks_grouped_by_countries',
             )
-        );
-    }
-
-    protected function getTotalExpenditure(): Money
-    {
-        return new Money(
-            Payment::query()
-                ->where(
-                    column: 'user_id',
-                    operator: '=',
-                    value: $this->user->id
-                )
-                ->sum(column: 'amount')
         );
     }
 
