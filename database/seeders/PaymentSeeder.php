@@ -14,23 +14,16 @@ class PaymentSeeder extends Seeder
      */
     public function run(): void
     {
-
-        Payment::factory()
-            ->count(100)
-            ->sequence(
-                function($sequence) {
-                $listing = Listing::query()
-                    ->select(['id', 'user_id'])
-                    ->inRandomOrder()
-                    ->limit(1)
-                    ->first();
-
-                    return [
-                    'listing_id' => $listing->id,
-                    'user_id' => $listing->user_id,
-                    ];
-                }
+        $listings = Listing::chunk(
+            50,
+            fn ($listings) => $listings->each(
+                fn (Listing $listing) => $listing->payments()->create(
+                    Payment::factory()
+                    ->set('user_id', $listing->user_id)
+                    ->make()
+                    ->toArray()
+                )
             )
-            ->create();
+        );
     }
 }
