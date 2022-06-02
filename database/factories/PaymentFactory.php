@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Support\Str;
+use App\Domain\Helpers\Money;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,7 +27,7 @@ class PaymentFactory extends Factory
         return [
             'code' =>  $this->faker->swiftBicNumber(),
             'flw_id' => $this->faker->ean8(),
-            'amount' => $this->faker->randomFloat(2, 1999, 5000),
+            'amount' => new Money($this->faker->randomFloat(2, 1999, 5000)),
             'status' => 'successful',
             'paid_at' => $date,
             'created_at' => $date,
