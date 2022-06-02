@@ -1,5 +1,4 @@
 <x-dashboard-layout title="{{ $listing->title }}">
-
     <section class="uk-tile uk-padding-small-horizontal">
         <header class="uk-grid uk-flex-middle uk-grid-medium"
                 uk-grid>
@@ -272,7 +271,7 @@
                                         <td>{{ $payment->amount }}</td>
                                         <td>{{ $payment->code }}</td>
                                         <td>{{ $payment->payment_method }}</td>
-                                        <td>{{ $payment->paid_at->format('ds M, Y h:m a') }}</td>
+                                        <td>{{ $payment->paid_at->format('dS M, Y h:m a') }}</td>
                                     </tr>
                                 @empty
                                     <tr>
