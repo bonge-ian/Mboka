@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\MoneyCast;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,7 +26,8 @@ class Payment extends Model
     ];
 
     protected $casts = [
-        'paid_at' => 'datetime'
+        'paid_at' => 'datetime',
+        'amount' => MoneyCast::class
     ];
 
     public function user(): BelongsTo
