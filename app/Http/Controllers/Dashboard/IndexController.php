@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Domain\States\ListingStatusEnum;
 use App\Http\Controllers\Dashboard\Concerns\TotalClicksAndViewsCount;
 
 class IndexController extends Controller
@@ -37,6 +38,11 @@ class IndexController extends Controller
                 'location',
                 'listing_type'
             ])
+            ->where(
+                column: 'status',
+                operator:'!=',
+                value: ListingStatusEnum::CLOSED
+            )
             ->withCount([
                 'clicks',
                 'views'
