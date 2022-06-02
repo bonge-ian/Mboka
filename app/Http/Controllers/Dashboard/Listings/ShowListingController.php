@@ -12,11 +12,12 @@ class ShowListingController extends Controller
     public function __invoke(Request $request, Listing $listing): View
     {
         $listing->loadMissing([
-            'category:id,name,slug',
+            'tags:id,name',
             'company:id,logo',
-            'payments:id,code,amount,status,payment_method',
-            'tags:id,name'
-        ])->loadCount(['views', 'clicks']);
+            'category:id,name,slug',
+            'payments' => fn($query) => $query->orderBy('paid_at', 'desc')
+        ])
+        ->loadCount(['views', 'clicks']);
 
         $user = $request->user();
 
