@@ -27,15 +27,15 @@
                     Create new listing
                 </a>
             </li>
-            <li>
+            <li class="{{ request()->routeIs('dashboard.analytics') ? 'uk-active' : '' }}">
                 <a href="{{ route('dashboard.analytics') }}">
                     <span class="uk-margin-small-right"
                           uk-icon="icon: analyse"></span>
                     Analytics
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class="{{ request()->routeIs('dashboard.transactions') ? 'uk-active' : '' }}">
+                <a href="{{ route("dashboard.transactions") }}">
                     <span class="uk-margin-small-right"
                           uk-icon="icon: wallet"></span>
                     Transactions
@@ -43,14 +43,14 @@
             </li>
             <li class="uk-nav-divider"></li>
             <li class="uk-nav-header">Your Settings</li>
-            <li>
+            <li class="{{ request()->is('/user/profile') ? 'uk-active' : '' }}">
                 <a href="/user/profile">
                     <span class="uk-margin-small-right"
                           uk-icon="icon: cog;ratio: 1.2"></span>
                     Profile Settings
                 </a>
             </li>
-            <li>
+            <li class="{{ request()->routeIs('logout') ? 'uk-active' : '' }}">
                 <x-logout />
             </li>
         </ul>

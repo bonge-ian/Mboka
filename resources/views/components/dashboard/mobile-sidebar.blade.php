@@ -14,21 +14,21 @@
                uk-tooltip="title: Manage listings">
             </a>
         </li>
-        <li>
+        <li class="{{ request()->routeIs('listing.create') ? 'uk-active' : '' }}">
             <a href="{{ route('listing.create') }}"
                class="uk-text-secondary"
                uk-icon="icon: plus-circle;ratio: 1.2"
                uk-tooltip="title: New Listing">
             </a>
         </li>
-        <li>
+        <li class="{{ request()->routeIs('dashboard.analytics') ? 'uk-active' : '' }}">
             <a href="{{ route('dashboard.analytics') }}"
                uk-icon="icon: analyse"
                uk-tooltip="title: Analytics">
             </a>
         </li>
-        <li>
-            <a href="#"
+        <li class="{{ request()->routeIs('dashboard.transactions') ? 'uk-active' : '' }}">
+            <a href="{{ route("dashboard.transactions") }}"
                uk-icon="icon: wallet"
                uk-tooltip="title: Transactions">
             </a>
