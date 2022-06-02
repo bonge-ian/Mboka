@@ -2,11 +2,8 @@
 
 namespace App\Http\Livewire\Dashboard;
 
-use Auth;
-use App\Models\User;
 use App\Models\Listing;
 use Livewire\Component;
-use Illuminate\Http\Request;
 use Livewire\WithPagination;
 use Illuminate\Database\Eloquent\Builder;
 
