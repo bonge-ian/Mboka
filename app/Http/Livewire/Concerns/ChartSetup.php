@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Concerns;
 
+use Lean\LivewireAccess\WithImplicitAccess;
+use Lean\LivewireAccess\BlockFrontendAccess;
 use Asantibanez\LivewireCharts\Models\BaseChartModel;
-
 
 trait ChartSetup
 {
+    use WithImplicitAccess;
+
+    #[BlockFrontendAccess]
     public int $user_id;
 
     public bool $readyToLoad = false;
