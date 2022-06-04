@@ -12,7 +12,6 @@ use CyrildeWit\EloquentViewable\View;
 use Illuminate\Database\Query\Expression;
 use App\Http\Livewire\Concerns\ChartSetup;
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use Asantibanez\LivewireCharts\Models\BaseChartModel;
 use Asantibanez\LivewireCharts\Facades\LivewireCharts;
 
 class ListingsChart extends Component
@@ -30,8 +29,6 @@ class ListingsChart extends Component
     {
         $this->user_id = $user_id;
         $this->chart_type = $chart_type;
-
-        // $this->setChartModel();
     }
 
     public function loadChart()
@@ -112,6 +109,10 @@ class ListingsChart extends Component
             end_date: now()
         );
 
+        if ($clicks->isEmpty() && $views->isEmpty()) {
+            return false;
+        }
+
         $chart = $this->populateChartData(
             clicks: $clicks,
             views: $views,
@@ -122,6 +123,9 @@ class ListingsChart extends Component
 
     protected function populateChartData(Collection $clicks, Collection $views)
     {
+
+
+
         $this->chart_model = $clicks->reduce(
             callback: function ($chart_model, $data) use ($clicks) {
                 $key = $clicks->search($data);

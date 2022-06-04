@@ -51,7 +51,13 @@ class ListingsBreakdownChart extends Component
 
     protected function populateChart()
     {
-        return $this->chart_model = $this->getListingsCount()
+        $listings_count =  $this->getListingsCount();
+
+        if ($listings_count->isEmpty()) {
+            return false;
+        }
+
+        return $this->chart_model = $listings_count
             ->reduce(
                 function (PieChartModel $pie_chart_model, Listing $listing) {
                     $type = $listing->status->value;
