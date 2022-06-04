@@ -14,7 +14,7 @@ use App\Domain\States\ListingTypeEnum;
 use App\Http\Livewire\Dashboard\EditListing;
 use App\Domain\States\EmployeeAvailabilityEnum;
 
-trait AddOrEditListingHelpers
+trait AddEditListingHelpers
 {
     public string $perks = '';
 

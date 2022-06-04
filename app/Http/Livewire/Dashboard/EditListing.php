@@ -9,17 +9,18 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Lean\LivewireAccess\WithImplicitAccess;
 use Lean\LivewireAccess\BlockFrontendAccess;
+use App\Http\Livewire\Concerns\AddEditListingHelpers;
 use App\Http\Livewire\Concerns\FormatLocationProperty;
-use App\Http\Livewire\Concerns\AddOrEditListingHelpers;
 
 class EditListing extends Component
 {
     use WithImplicitAccess;
 
-    use AddOrEditListingHelpers;
+    use AddEditListingHelpers;
 
     use FormatLocationProperty;
 
+    #[BlockFrontendAccess]
     public string $slug;
 
     #[BlockFrontendAccess]
@@ -67,7 +68,7 @@ class EditListing extends Component
     {
         return view('livewire.dashboard.edit-listing');
     }
-    
+
     protected function capitalizeTags()
     {
         return collect($this->unpackTags())
