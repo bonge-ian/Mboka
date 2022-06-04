@@ -60,7 +60,7 @@ class PaymentController extends Controller
                 Auth::login($user);
             }
 
-            return redirect()->route('dashboard')->with('status', 'create-listing');
+            return redirect()->route('dashboard.index')->with('status', 'create-listing');
         } catch (\Exception $e) {
             dd($e->getMessage());
             DB::rollback();
