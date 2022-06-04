@@ -5,9 +5,14 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Collection;
+use Lean\LivewireAccess\WithImplicitAccess;
+use Lean\LivewireAccess\BlockFrontendAccess;
 
 class RegisterForm extends Component
 {
+    use WithImplicitAccess;
+
+    #[BlockFrontendAccess]
     public Collection $state;
 
     public int $step;

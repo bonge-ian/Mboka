@@ -9,14 +9,20 @@ use Livewire\Component;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Lean\LivewireAccess\WithImplicitAccess;
+use Lean\LivewireAccess\BlockFrontendAccess;
 use App\Services\Flutterwave\CheckoutService;
 use App\Domain\ValueObjects\Factories\CustomerFactory;
 use App\Domain\ValueObjects\Factories\CheckoutPayloadFactory;
 
 class CreateListing extends Component
 {
+    use WithImplicitAccess;
+
+    #[BlockFrontendAccess]
     public Collection $state;
 
+    #[BlockFrontendAccess]
     public int $step = 1;
 
     protected $listeners = [

@@ -6,14 +6,19 @@ use App\Models\Listing;
 use Livewire\Component;
 use Illuminate\Support\Arr;
 use App\Domain\Helpers\Prices;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
+use Lean\LivewireAccess\WithImplicitAccess;
+use Lean\LivewireAccess\BlockFrontendAccess;
 
 class BoostListingForm extends Component
 {
+    use WithImplicitAccess;
+
+    #[BlockFrontendAccess]
     public int $step = 3;
 
+    #[BlockFrontendAccess]
     public Collection $state;
 
     public ?bool $is_pinned = null;

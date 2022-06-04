@@ -2,24 +2,27 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Listing;
 use Livewire\Component;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
+use Lean\LivewireAccess\WithImplicitAccess;
+use Lean\LivewireAccess\BlockFrontendAccess;
+use App\Http\Livewire\Concerns\AddEditListingHelpers;
 use App\Http\Livewire\Concerns\FormatLocationProperty;
-use App\Http\Livewire\Concerns\AddOrEditListingHelpers;
 
 class ListingDetailsForm extends Component
 {
-    use AddOrEditListingHelpers;
+    use AddEditListingHelpers;
 
     use FormatLocationProperty;
 
+    use WithImplicitAccess;
+
+    #[BlockFrontendAccess]
     public Collection $state;
 
+    #[BlockFrontendAccess]
     public int $step = 1;
 
     public function mount()
@@ -55,5 +58,4 @@ class ListingDetailsForm extends Component
     {
         return view('livewire.listing-details-form');
     }
-    
 }

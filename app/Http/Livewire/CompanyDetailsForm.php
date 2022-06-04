@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\Company;
 use Livewire\Component;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;

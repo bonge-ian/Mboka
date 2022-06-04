@@ -7,11 +7,17 @@ use App\Domain\Helpers\Money;
 
 use App\Domain\Helpers\Prices;
 use Illuminate\Support\Collection;
+use Lean\LivewireAccess\WithImplicitAccess;
+use Lean\LivewireAccess\BlockFrontendAccess;
 
 class PaymentForm extends Component
 {
+    use WithImplicitAccess;
+
+    #[BlockFrontendAccess]
     public Collection $state;
 
+    #[BlockFrontendAccess]
     public int $step;
 
 

@@ -6,11 +6,16 @@ use App\Models\Listing;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Database\Eloquent\Builder;
+use Lean\LivewireAccess\WithImplicitAccess;
+use Lean\LivewireAccess\BlockFrontendAccess;
 
 class ManageListings extends Component
 {
     use WithPagination;
 
+    use WithImplicitAccess;
+
+    #[BlockFrontendAccess]
     public int $user_id;
 
     public string $sort = 'desc';

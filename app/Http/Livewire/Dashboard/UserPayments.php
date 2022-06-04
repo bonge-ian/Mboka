@@ -4,9 +4,14 @@ namespace App\Http\Livewire\Dashboard;
 
 use App\Models\Payment;
 use Livewire\Component;
+use Lean\LivewireAccess\WithImplicitAccess;
+use Lean\LivewireAccess\BlockFrontendAccess;
 
 class UserPayments extends Component
 {
+    use WithImplicitAccess;
+
+    #[BlockFrontendAccess]
     public int $user_id;
 
     public function paginationSimpleView()
