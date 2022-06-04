@@ -17,7 +17,7 @@
         <div class="uk-alert uk-alert-primary uk-margin"
              uk-alert>
             <p>
-                The chart analysis may either be processing or failed to load due to some technical difficulty.
+                The chart analysis may either be processing or failed to load due to some technical difficulty or you may not have sufficient data to showcase the breakdown.
             </p>
         </div>
     @endif
