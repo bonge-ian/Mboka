@@ -1,5 +1,11 @@
-<article class="uk-card uk-card-default uk-card-body uk-box-shadow-medium uk-card-small uk-card-hover"
-         uk-toggle="target: #apply-link-{{ $listing->id }};mode: hover;cls: uk-invisible">
+<article @class([
+    'uk-card uk-card-default uk-card-body uk-box-shadow-medium uk-card-small uk-card-hover',
+    'uk-dark' => $listing->is_highlight_color_light,
+    'uk-light' => !$listing->is_highlight_color_light && $listing->is_highlighted,
+])
+         @if ($listing->is_highlighted)
+    style="background-color: {{ $listing->highlight_color }}"
+    @endif>
 
     <div class="uk-grid uk-grid-small uk-child-width-expand"
          uk-grid>
@@ -59,7 +65,7 @@
                 </div>
                 <div class="uk-width-1-6 uk-text-right">
                     <a href="{{ route('listing.apply', $listing->slug) }}"
-                       class="uk-button uk-button-primary uk-border-rounded uk-invisible"
+                       class="uk-button uk-button-primary uk-border-rounded sible"
                        id="apply-link-{{ $listing->id }}"
                        target="_blank">
                         Apply now

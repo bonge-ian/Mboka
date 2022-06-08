@@ -31,7 +31,10 @@ class Listing extends Model implements Viewable
     use HasSlugWithKey;
     use InteractsWithViews;
 
-    protected $appends = ['expired_at'];
+    protected $appends = [
+        'expired_at',
+        'is_highlight_color_light'
+    ];
 
     protected $fillable = [
         'employee_availability',
@@ -189,6 +192,13 @@ class Listing extends Model implements Viewable
     {
         return Attribute::make(
             fn () => $this->created_at?->addMonth()
+        );
+    }
+
+    protected function isHighlightColorLight(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): ?bool => ($this->highlight_color) ? wc_hex_is_light($this->highlight_color) : null
         );
     }
 }
