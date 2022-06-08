@@ -54,7 +54,7 @@ class ListingFactory extends Factory
             'experience' =>  $this->faker->paragraphs(random_int(1, 4), true),
             'overview' => $this->faker->paragraphs(random_int(2, 6), true),
             'is_highlighted' => $isHighlighted = $this->faker->boolean(chanceOfGettingTrue: 34),
-            'highlight_color' => ($isHighlighted) ? $this->faker->hslColor() : null,
+            'highlight_color' => ($isHighlighted) ? $this->faker->hexColor() : null,
             'location' => $this->faker->city() . ', ' . $this->faker->country(),
             'show_logo' => $this->faker->boolean(chanceOfGettingTrue: 60),
         ];
