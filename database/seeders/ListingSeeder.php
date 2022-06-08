@@ -17,7 +17,7 @@ class ListingSeeder extends Seeder
     public function run(): void
     {
         Listing::factory()
-            ->count(100)
+            ->count(200)
             ->sequence(
                 fn ($sequence) => [
                     'user_id' => User::get('id')->random(),
