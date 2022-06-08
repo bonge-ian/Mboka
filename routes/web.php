@@ -1,16 +1,20 @@
 <?php
 
+use App\Models\Listing;
 use App\Http\Controllers\Dashboard;
 use App\Http\Livewire\CreateListing;
 use Illuminate\Support\Facades\Route;
+use App\Domain\States\ListingStatusEnum;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ShowListingController;
 use App\Http\Livewire\Dashboard\ManageListings;
 use App\Http\Controllers\ApplyListingController;
 
-// Route::view('/', 'dash');
-
-// Route::get('/', CreateListing::class);
+// Route::view('/', 'index');
+Route::get('/', function () {
+    return view('index');
+});
 
 Route::prefix('dashboard')
     ->name('dashboard.')
