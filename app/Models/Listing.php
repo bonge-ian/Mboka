@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Arr;
+use Laravel\Scout\Searchable;
 use App\Rules\Location\ValidCountry;
 use Illuminate\Validation\Rules\Enum;
 use App\Domain\States\ListingTypeEnum;
@@ -9,6 +11,7 @@ use App\Rules\Location\LocationFormat;
 use App\Models\Concerns\HasSlugWithKey;
 use Illuminate\Database\Eloquent\Model;
 use App\Domain\States\ListingStatusEnum;
+use Illuminate\Database\Eloquent\Builder;
 use App\Domain\States\EmployeeAvailabilityEnum;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
@@ -24,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Listing extends Model implements Viewable
 {
     use HasFactory;
+    use Searchable;
     use HasSlugWithKey;
     use InteractsWithViews;
 
@@ -111,7 +115,16 @@ class Listing extends Model implements Viewable
         );
     }
 
-    public function scopeRelatedProducts($query)
+    public function scopeIsActive(Builder $query)
+    {
+        $query->where(
+            column: 'status',
+            operator: '=',
+            value: ListingStatusEnum::ACTIVE
+        );
+    }
+
+    public function scopeRelatedProducts(Builder $query)
     {
         $query
             ->where('category_id', $this->category_id)
@@ -119,6 +132,22 @@ class Listing extends Model implements Viewable
             ->with('company')
             ->inRandomOrder()
             ->limit(5);
+    }
+
+
+    public function toSearchableArray(): array
+    {
+        return [
+            'employee_availability' => $this->employee_availability,
+            'listing_type' => $this->listing_type,
+            'category_id' => $this->category_id,
+            'company_id' => $this->company_id,
+            'user_id' => $this->user_id,
+            'location' => $this->location,
+            'status' => $this->status,
+            'title' => $this->title,
+            'slug' => $this->slug,
+        ];
     }
 
     public static function rules(): array
