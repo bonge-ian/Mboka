@@ -1,0 +1,37 @@
+.hero {
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.8242647400757178) 22%, rgba(255, 255, 255, 0.5105392498796393) 88%),
+        -webkit-image-set(url(/storage/assets/img/hero-small.jpg) 1x,
+            url(/storage/assets/img/hero.jpg) 2x,
+            url(/storage/assets/img/hero-large.jpg) 3x,
+        );
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.8242647400757178) 22%, rgba(255, 255, 255, 0.5105392498796393) 88%),
+        image-set(url(/storage/assets/img/hero-small.jpg) 1x,
+            url(/storage/assets/img/hero.jpg) 1.5x,
+            url(/storage/assets/img/hero-large.jpg) 2x,
+        );
+
+}
+
+@media (min-width: $breakpoint-small) {
+    .hero {
+        background-position-y: calc(150%);
+    }
+}
+
+@media (min-width: 830px) {
+    .hero {
+        background-position-y: calc(100%);
+    }
+}
+
+@media (min-width: $breakpoint-medium) {
+    .hero {
+        background-position-y: calc(92%);
+    }
+}
+
+@media (max-width: $breakpoint-small) {
+    .hero {
+        background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.8242647400757178) 22%, rgba(255, 255, 255, 0.5105392498796393) 88%);
+    }
+}
