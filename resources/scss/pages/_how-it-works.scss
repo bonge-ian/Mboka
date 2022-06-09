@@ -1,0 +1,39 @@
+.create-listing-procedure {
+    background-image: linear-gradient(90deg, rgba(87, 111, 136, 0.8298669809720763) 27%, rgba(249, 253, 255, 1) 53%),
+        -webkit-image-set(url(/storage/assets/img/explain-small.jpg) 1x,
+            url(/storage/assets/img/explain.jpg) 2x,
+            url(/storage/assets/img/explain-large.jpg) 3x,
+        );
+    background-image: linear-gradient(90deg, rgba(87, 111, 136, 0.8298669809720763) 27%, rgba(249, 253, 255, 1) 53%),
+        image-set(url(/storage/assets/img/explain-small.jpg) 1x,
+            url(/storage/assets/img/explain.jpg) 1.5x,
+            url(/storage/assets/img/explain-large.jpg) 2x,
+        );
+}
+
+.view-listing-procedure {
+    background-image: linear-gradient(270deg, rgba(87, 111, 136, 0.8298669809720763) 27%, rgba(249, 253, 255, 1) 53%),
+        image-set(url(/storage/assets/img/view-small.jpg) 1x,
+            url(/storage/assets/img/view.jpg) 1.5x,
+            url(/storage/assets/img/view-large.jpg) 2x,
+        );
+}
+
+@media (max-width: $breakpoint-medium) {
+    .create-listing-procedure {
+        background-image: linear-gradient(90deg, rgba(119, 141, 164, 0.7010154403558299) 4%, rgba(249, 253, 255, 0.7570378493194152) 20%);
+    }
+
+    .view-listing-procedure {
+        background-image: linear-gradient(270deg, rgba(119, 141, 164, 0.7010154403558299) 10%, rgba(249, 253, 255, 0.7570378493194152) 26%);
+        ;
+    }
+}
+
+@media (min-width: $breakpoint-large) {
+    .create-listing-procedure {
+        background-position: 80% 50%;
+    }
+
+
+}

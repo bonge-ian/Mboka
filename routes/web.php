@@ -16,6 +16,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::view('/how-it-works', 'how')->name('how-it-works');
+
 Route::prefix('dashboard')
     ->name('dashboard.')
     ->middleware(['auth', 'verified'])

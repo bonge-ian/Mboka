@@ -27,7 +27,7 @@
                             </li>
                         @endauth
                         <li>
-                            <a href="#">How it Works</a>
+                            <a href="{{ route('how-it-works') }}">How it Works</a>
                         </li>
                         <li>
                             <a href="#">About Us</a>
@@ -119,8 +119,8 @@
                                     <li class="">
                                         <a href="#">About us</a>
                                     </li>
-                                    <li class="">
-                                        <a href="#">How it works</a>
+                                    <li class="{{ request()->routeIs('how-it-works') ? 'uk-active' : '' }}>
+                                        <a href="{{ route('how-it-works') }}">How it works</a>
                                     </li>
                                     <li class="">
                                         <a href="#">Contact</a>
