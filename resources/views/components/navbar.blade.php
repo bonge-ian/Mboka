@@ -12,6 +12,10 @@
 
                     </a>
 
+
+                </div>
+
+                <div class="uk-navbar-center">
                     {{-- navigation links --}}
                     <ul class="uk-navbar-nav uk-visible@m">
                         <li class="{{ request()->is('/') ? 'uk-active' : '' }}">
