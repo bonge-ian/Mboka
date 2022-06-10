@@ -26,14 +26,14 @@
                                 <a href="{{ route('dashboard.index') }}">Dashboard</a>
                             </li>
                         @endauth
-                        <li>
+                        <li class="{{ request()->routeIs('how-it-works') ? 'uk-active' : '' }}">
                             <a href="{{ route('how-it-works') }}">How it Works</a>
                         </li>
-                        <li>
-                            <a href="#">About Us</a>
+                        <li class="{{ request()->routeIs('about-us') ? 'uk-active' : '' }}">
+                            <a href="{{ route('about-us') }}">About Us</a>
                         </li>
                         <li>
-                            <a href="#">Contact</a>
+                            <a href="mailto:info@bonge-inc.co.ke">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -116,14 +116,14 @@
                                             <a href="{{ route('dashboard.index') }}">Dashboard</a>
                                         </li>
                                     @endauth
-                                    <li class="">
-                                        <a href="#">About us</a>
+                                    <li class="{{ request()->routeIs('about-us') ? 'uk-active' : '' }}">
+                                        <a href="{{ route('about-us') }}">About us</a>
                                     </li>
                                     <li class="{{ request()->routeIs('how-it-works') ? 'uk-active' : '' }}>
                                         <a href="{{ route('how-it-works') }}">How it works</a>
                                     </li>
-                                    <li class="">
-                                        <a href="#">Contact</a>
+                                    <li>
+                                        <a href="mailto:info@bonge-inc.co.ke">Contact</a>
                                     </li>
                                     @guest
                                         <li>
@@ -194,21 +194,25 @@
 
                                     <div class="uk-child-width-auto uk-grid-small uk-flex uk-flex-center uk-grid"
                                          uk-grid>
+                                           <div>
+                                            <a class="uk-icon-link uk-icon"
+                                               href="https://bonge-inc.co.ke"
+                                               id="Bonge Inc website link"
+                                               uk-icon="icon: world;">
+                                            </a>
+                                        </div>
                                         <div>
                                             <a class="uk-icon-link uk-icon"
-                                               href="#"
+                                               href="https://www.facebook.com/bonge.inc/"
+                                               id="Bonge Inc Facebook Page"
                                                uk-icon="icon: facebook;">
                                             </a>
                                         </div>
-                                        <div>
-                                            <a class="uk-icon-link uk-icon"
-                                               href="#"
-                                               uk-icon="icon: twitter;">
-                                            </a>
-                                        </div>
+
                                         <div>
                                             <a class="uk-icon-link uk-icon"
                                                href="https://github.com/bonge-ian"
+                                                id="Bonge's Github Page"
                                                uk-icon="icon: github;">
                                             </a>
                                         </div>
