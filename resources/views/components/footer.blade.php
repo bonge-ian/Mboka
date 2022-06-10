@@ -10,19 +10,21 @@
         </div>
 
         <hr class="uk-margin-medium">
-        <div class="uk-grid uk-margin-medium-bottom" uk-grid>
+        <div class="uk-grid uk-margin-medium-bottom"
+             uk-grid>
             <div class="uk-grid-item-match uk-flex-middle uk-width-1-2@m">
                 <div class="uk-panel uk-width-1-1">
 
 
                     <div class="uk-margin-remove-vertical uk-text-right@m uk-text-center">
                         <div class="uk-child-width-auto uk-grid-small uk-flex-inline uk-grid"
-                             uk-grid="">
+                             uk-grid>
 
                             <div>
                                 <a class="uk-icon-link "
                                    href="https://www.facebook.com/bonge.inc/"
                                    target="_blank"
+                                   id="Bonge Inc. Facebook Page"
                                    rel="noreferrer">
                                     <span uk-icon="icon: facebook; width: 16; height: 16;"
                                           class="uk-icon">
@@ -31,8 +33,9 @@
                             </div>
                             <div>
                                 <a class="uk-icon-link"
-                                   href="https://www.github.com/bonge-iang"
+                                   href="https://www.github.com/bonge-ian"
                                    target="_blank"
+                                   id="Bonge's Github Page"
                                    rel="noreferrer">
                                     <span uk-icon="icon: github; width: 16; height: 16;"
                                           class="uk-icon">
@@ -43,6 +46,7 @@
                                 <a class="uk-icon-link"
                                    href="https://www.bonge-inc.co.ke"
                                    target="_blank"
+                                   id="Bonge Inc. Website Link"
                                    rel="noreferrer">
                                     <span uk-icon="icon:  world; width: 16; height: 16;"
                                           class="uk-icon">
