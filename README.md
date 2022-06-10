@@ -1,4 +1,4 @@
-<p align="center"><a href="https://bonge-inc.co.ke" target="_blank"><img src="https://github.com/bonge-ian/mboka/blob/master/landing-page-screenshot.jpeg" width="400"></a></p>
+<p align="center"><a href="https://bonge-inc.co.ke" target="_blank"><img src="https://github.com/bonge-ian/mboka/blob/master/landing-page-screenshot.jpeg"></a></p>
 
 ## About Laravel
 
