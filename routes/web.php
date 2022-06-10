@@ -1,11 +1,8 @@
 <?php
-
-use App\Models\Listing;
+ 
 use App\Http\Controllers\Dashboard;
 use App\Http\Livewire\CreateListing;
 use Illuminate\Support\Facades\Route;
-use App\Domain\States\ListingStatusEnum;
-use Illuminate\Database\Eloquent\Builder;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ShowListingController;
 use App\Http\Livewire\Dashboard\ManageListings;
@@ -17,6 +14,7 @@ Route::get('/', function () {
 });
 
 Route::view('/how-it-works', 'how')->name('how-it-works');
+Route::view('/about', 'about')->name('about-us');
 
 Route::prefix('dashboard')
     ->name('dashboard.')
