@@ -1,20 +1,28 @@
-<div class="uk-width-1-1">
+<div class="uk-width-1-1"
+     id="listings">
 
     <aside class="uk-tile uk-tile-muted">
         <div class="uk-width-3-4@m uk-width-1-1 uk-align-center uk-margin-medium-bottom">
 
             <div class="uk-grid uk-grid-small uk-grid-match"
-                 uk-grid>
+                 uk-grid
+                 role="form"
+                 aria-label="Search for a listing.">
                 <div class="uk-width-expand">
                     <input type="search"
                            wire:model.defer="search"
                            id="search"
+                           autocomplete
                            class="uk-input uk-border-rounded"
+                           aria-label="Search through site content for listings"
+                           minlength="4"
                            placeholder="Job title,location,or keyword...">
                 </div>
                 <div class="uk-width-auto">
 
                     <button wire:click.prevent="searchListing"
+                            type="button"
+                            name="search-for-a-listing"
                             class="uk-button uk-button-secondary uk-border-rounded">
                         <span class="uk-icon"
                               uk-icon="icon: search"></span>
@@ -28,7 +36,7 @@
              uk-grid>
             @forelse ($this->popularCategories as $category)
                 <div @class([
-                    'uk-first-column' => $loop->first
+                    'uk-first-column' => $loop->first,
                 ])>
                     <div wire:click.prevent="$emit('filterByCategory', {{ $category->id }})"
                          @class([
