@@ -16,10 +16,23 @@
                     Veracious and precise web platform to get your dream job.
                     No superfluous sign-ups required.
                 </p>
-                <a href="#"
-                   class="uk-button uk-button-large uk-border-rounded uk-button-primary uk-text-uppercase">
-                    Start Now.
-                </a>
+                <div class="uk-grid uk-child-width-auto uk-grid-small"
+                     uk-grid>
+                    <div>
+                        <a href="#listings"
+                           class="uk-button uk-button-large uk-border-rounded uk-button-primary uk-text-uppercase"
+                           uk-scroll>
+                            Start Browsing for jobs.
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{{ route('listing.create') }}"
+                           class="uk-button uk-button-large uk-border-rounded uk-button-default uk-text-uppercase">
+                            Create a listing for {{ App\Domain\Helpers\Prices::default()->formatted() }}
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
