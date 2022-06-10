@@ -72,8 +72,7 @@
                 </div>
                 <div class="uk-width-1-6@m uk-text-right@m uk-visible@m">
                     <a href="{{ route('listing.apply', $listing->slug) }}"
-                       class="uk-button uk-button-primary uk-border-rounded "
-                       id="apply-link-{{ $listing->id }}"
+                       class="uk-button uk-button-primary uk-border-rounded"
                        target="_blank">
                         Apply Now
                     </a>
@@ -109,7 +108,6 @@
                         <div class="uk-hidden@m">
                             <a href="{{ route('listing.apply', $listing->slug) }}"
                                class="uk-button uk-button-primary uk-border-rounded "
-                               id="apply-link-{{ $listing->id }}"
                                target="_blank">
                                 Apply now
                             </a>
