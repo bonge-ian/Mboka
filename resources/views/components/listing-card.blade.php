@@ -33,9 +33,10 @@
             <div class="uk-grid uk-grid-small uk-child-width-1-1"
                  uk-grid>
                 <div class="uk-width-expand@m">
-                    <a class="uk-card-title uk-text-bold uk-margin-remove-vertical uk-link-toggle">
+                    <a href="{{ route('listing.show', $listing->slug) }}"
+                       class="uk-card-title uk-text-bold uk-margin-remove-vertical uk-link-toggle">
                         <span class="uk-link-heading">{{ $listing->title }}</span>
-                          @if ($listing->is_pinned)
+                        @if ($listing->is_pinned)
                             <span class="uk-icon uk-margin-small-left uk-hidden@m"
                                   uk-icon='icon: pinned'>
                             </span>
@@ -71,10 +72,10 @@
                 </div>
                 <div class="uk-width-1-6@m uk-text-right@m uk-visible@m">
                     <a href="{{ route('listing.apply', $listing->slug) }}"
-                       class="uk-button uk-button-primary uk-border-rounded sible"
+                       class="uk-button uk-button-primary uk-border-rounded "
                        id="apply-link-{{ $listing->id }}"
                        target="_blank">
-                        Apply now
+                        Apply Now
                     </a>
                 </div>
             </div>
@@ -107,7 +108,7 @@
                         </div>
                         <div class="uk-hidden@m">
                             <a href="{{ route('listing.apply', $listing->slug) }}"
-                               class="uk-button uk-button-primary uk-border-rounded sible"
+                               class="uk-button uk-button-primary uk-border-rounded "
                                id="apply-link-{{ $listing->id }}"
                                target="_blank">
                                 Apply now
