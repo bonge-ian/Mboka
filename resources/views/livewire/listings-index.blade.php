@@ -32,7 +32,7 @@
 
 
         </div>
-        <div class="uk-grid uk-grid-row-medium uk-grid-column-small uk-flex-center@m uk-flex-middle uk-child-width-auto"
+        <div class="uk-grid uk-grid-row-medium uk-grid-column-small uk-flex-center uk-flex-middle uk-child-width-auto"
              uk-grid>
             @forelse ($this->popularCategories as $category)
                 <div @class([

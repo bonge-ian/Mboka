@@ -16,7 +16,7 @@
                     Veracious and precise web platform to get your dream job.
                     No superfluous sign-ups required.
                 </p>
-                <div class="uk-grid uk-child-width-auto uk-grid-small"
+                <div class="uk-grid uk-child-width-auto uk-flex-center uk-grid-small"
                      uk-grid>
                     <div>
                         <a href="#listings"
