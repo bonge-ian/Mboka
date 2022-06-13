@@ -6,7 +6,6 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Company;
 use App\Models\Listing;
-use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -15,8 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Domain\States\ListingStatusEnum;
 use App\Http\Middleware\VerifyRedirectUrl;
 use Illuminate\Http\Client\RequestException;
-use App\Services\Flutterwave\TransactionService;
-use App\Domain\ValueObjects\Flutterwave\TransactionPayload;
+use App\Services\Flutterwave\TransactionService; 
 use App\Domain\ValueObjects\Flutterwave\TransactionResponse;
 
 class PaymentController extends Controller
