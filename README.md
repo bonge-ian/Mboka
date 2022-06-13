@@ -1,8 +1,10 @@
-<p align="center"><a href="https://bonge-inc.co.ke" target="_blank"><img src="https://github.com/bonge-ian/mboka/blob/master/landing-page-screenshot.jpeg"></a></p>
+<p align="center"><a href="https://mboka.demos.bonge-inc.co.ke/" target="_blank"><img src="https://github.com/bonge-ian/mboka/blob/master/landing-page-screenshot.jpeg"></a></p>
 
 ## About Laravel
 
 Mboka is a minimialistic approach to a job board web application.
+
+The demo can be found [here](https://mboka.demos.bonge-inc.co.ke/)
 
 ## Features
 
@@ -27,3 +29,9 @@ Mboka is a minimialistic approach to a job board web application.
 -   [Apline JS](https://www.alpinejs.dev)
 -   [Livewire Charts](https://github.com/asantibanez/livewire-charts)
 -   [Apex Charts](https://apexcharts.com/)
+
+
+## Live Version
+The live version can be found [here](https://mboka.demos.bonge-inc.co.ke/)
+
+https://mboka.demos.bonge-inc.co.ke/
