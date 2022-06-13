@@ -76,6 +76,11 @@ class CreateListing extends Component
 
     public function render(): View
     {
+        seo()
+            ->title('Create a new job listing')
+            ->description("Reach our audience of global, adept workers for just Ksh 1999 for a 30 day listing.")
+            ->url(route('listing.create'));
+
         return view('livewire.create-listing')
             ->layout('layouts.app', ['title' => 'Create a new job listing']);
     }

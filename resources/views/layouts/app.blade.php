@@ -10,6 +10,12 @@
     <meta name="csrf-token"
           content="{{ csrf_token() }}">
 
+    <link rel="shortcut icon"
+          href="{{ asset('storage/assets/img/mboka-logo.svg') }}"
+          type="image/x-icon">
+
+    <x-seo::meta />
+
     @isset($title)
         <title>{{ config('app.name', 'Laravel') }} - {{ $title }}</title>
     @else
@@ -61,7 +67,7 @@
         </main>
     </div>
 
-    <x-footer/>
+    <x-footer />
     <!-- App -->
     <script src="{{ mix('js/app.js') }}"></script>
     <livewire:scripts />

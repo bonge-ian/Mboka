@@ -1,4 +1,7 @@
 <x-default-layout title="How It Works">
+    @seo(['title' => 'How It Works.'])
+    @seo(['description' => 'Get to know how our web platform works. We have a detailed overview of our robust job listing application, catered for both a job seeker and an employer. '])
+    @seo(['url' =>route('how-it-works')])
     <section class="uk-section uk-section-large">
         <header class="uk-width-1-1 uk-text-center">
             <h1 class="uk-heading-medium uk-text-bold uk-text-background">

@@ -30,5 +30,20 @@ class AppServiceProvider extends ServiceProvider
             ability: 'can-edit-listing',
             callback: fn (User $user, Listing $listing) => $user->id === $listing->user_id
         );
+
+        $this->defaultSeo();
+    }
+
+    protected function defaultSeo(): void
+    {
+        seo()
+            ->site('Mboka — Meticulously architected web applications')
+            ->title(
+                default: 'Mboka — Get the right job you deserve',
+                modify: fn (string $title) => 'Mboka - ' . $title
+            )
+            ->description(default: 'The only veracious and precise web platform to get your dream job. No superfluous sign-ups required.')
+            ->image(default: fn () => asset('storage/assets/img/mboka-logo.svg'))
+            ->twitterSite('bongeinc');
     }
 }

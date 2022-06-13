@@ -1,4 +1,8 @@
 <x-default-layout title="About Us">
+    @seo(['title' => 'About Us'])
+    @seo(['description' => 'Acquaint yourselves with what we stand for. Get to know more about the only web job platform that aims to easily connect job seekers and employers together '])
+    @seo(['url' => route('about-us')])
+
     <section class="uk-section uk-section-large uk-section-default">
         <div class="uk-container uk-container-large">
             <header class="uk-width-1-1 uk-margin-large-bottom">

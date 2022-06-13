@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
 
 class ShowListingController extends Controller
@@ -18,6 +19,11 @@ class ShowListingController extends Controller
         $relatedListings = $this->getRelatedListings($listing);
 
         views($listing)->record();
+
+        seo()
+            ->title($listing->title)
+            ->description(Str::limit($listing->overview, 50))
+            ->url(route('listing.show', $listing->slug));
 
         return view('listing.show', compact('listing', 'relatedListings'));
     }
