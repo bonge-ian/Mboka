@@ -119,7 +119,7 @@
                                     <li class="{{ request()->routeIs('about-us') ? 'uk-active' : '' }}">
                                         <a href="{{ route('about-us') }}">About us</a>
                                     </li>
-                                    <li class="{{ request()->routeIs('how-it-works') ? 'uk-active' : '' }}>
+                                    <li class="{{ request()->routeIs('how-it-works') ? 'uk-active' : '' }}">
                                         <a href="{{ route('how-it-works') }}">How it works</a>
                                     </li>
                                     <li>
