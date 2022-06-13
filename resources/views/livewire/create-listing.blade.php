@@ -1,4 +1,6 @@
-<div class="uk-container uk-container-small uk-position-relative">
+<div class="uk-container uk-container-small uk-position-relative"
+     id="create-listing">
+
     @if ($step === 1)
         <livewire:listing-details-form :state="$state"
                                        key="{{ 'step-' . $step }}"
@@ -39,21 +41,39 @@
         <div class="uk-icon uk-spinner"
              uk-spinner="ratio: 2"></div>
     </div>
+    <div class="uk-margin uk-width-1-1 " hidden>
+        <a class="uk-button uk-button-text"
+           href="#create-listing"
+           uk-scroll>Scroll down</a>
+    </div>
+    @push('scripts')
+        <script>
+            window.addEventListener('redirect-request', event => {
+                var el = document.querySelector('.spinner-container');
+                var loading = setInterval(() => {
+                    el.removeAttribute('hidden');
+                    el.querySelector('.uk-spinner').classList.add('uk-display-block');
 
-    <script>
-        window.addEventListener('redirect-request', event => {
-            var el = document.querySelector('.spinner-container');
-            var loading = setInterval(() => {
-                el.removeAttribute('hidden');
-                el.querySelector('.uk-spinner').classList.add('uk-display-block');
+                    setTimeout(() => {
+                        clearInterval(loading);
+                        el.querySelector('.uk-spinner').classList.remove('uk-display-block');
+                        el.setAttribute('hidden');
+                    }, 1500);
+                });
 
-                setTimeout(() => {
-                    clearInterval(loading);
-                    el.querySelector('.uk-spinner').classList.remove('uk-display-block');
-                    el.setAttribute('hidden');
-                }, 1500);
             });
 
-        });
-    </script>
+            Livewire.on('advanceToStep', () => {
+                setTimeout(() => {
+                    UIkit.scroll(
+                            document.querySelector("[uk-scroll]")
+                        )
+                        .scrollTo(
+                            document.querySelector('#product-listings')
+                        );
+                }, 900);
+            })
+        </script>
+    @endpush
+
 </div>
