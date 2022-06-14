@@ -115,10 +115,10 @@
                                class="uk-form-label uk-text-bold">About your company</label>
                         <div class="uk-form-controls">
                             <textarea wire:model.defer="bio"
-          id="bio"
-          rows="4"
-          class="uk-textarea uk-border-rounded @error('bio')  @enderror"
-          placeholder="An bio of the role."></textarea>
+                                      id="bio"
+                                      rows="4"
+                                      class="uk-textarea uk-border-rounded @error('bio')  @enderror"
+                                      placeholder="An bio of the role."></textarea>
 
                         </div>
                         @error('bio')
@@ -139,8 +139,18 @@
 
                         <div>
                             <button type="submit"
-                                    class="uk-button uk-button-primary uk-border-rounded uk-align-right">
-                                <span>Next</span>
+                                    @class([
+                                        'uk-button uk-border-rounded uk-align-right',
+                                        'uk-button-primary' => !$errors->any(),
+                                        'uk-button-danger' => $errors->any(),
+                                    ]) >
+                                @if ($errors->any())
+                                    <span class="uk-margin-small-right uk-icon"
+                                          uk-icon="icon: warning;"></span>
+                                    <span>Next</span>
+                                @else
+                                    <span>Next</span>
+                                @endif
                                 <span wire:loading.delay.long
                                       wire:target="submit"
                                       class="uk-margin-small-left uk-icon uk-spinner"

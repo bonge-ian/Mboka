@@ -10,14 +10,15 @@
                     </legend>
                     <div class="uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@m"
                          uk-grid>
-                         <div class="uk-width-1-1 uk-panel">
-                                 <p class="uk-text-background uk-text-lead uk-text-bold">
-                            Manage your posted listings.
-                        </p>
-                         </div>
+                        <div class="uk-width-1-1 uk-panel">
+                            <p class="uk-text-background uk-text-lead uk-text-bold">
+                                Manage your posted listings.
+                            </p>
+                        </div>
 
                         <div>
-                            <label class="uk-form-label uk-text-bold" for="name">{{ __('Name') }}</label>
+                            <label class="uk-form-label uk-text-bold"
+                                   for="name">{{ __('Name') }}</label>
 
                             <div class="uk-width-1-1">
                                 <div class="uk-inline uk-width-1-1">
@@ -41,7 +42,8 @@
                         </div>
 
                         <div>
-                            <label class="uk-form-label uk-text-bold" for="email">{{ __('Email') }}</label>
+                            <label class="uk-form-label uk-text-bold"
+                                   for="email">{{ __('Email') }}</label>
 
                             <div class="uk-width-1-1">
                                 <div class="uk-inline uk-width-1-1">
@@ -63,7 +65,8 @@
                         </div>
 
                         <div>
-                            <label class="uk-form-label uk-text-bold" for="password">{{ __('Password') }}</label>
+                            <label class="uk-form-label uk-text-bold"
+                                   for="password">{{ __('Password') }}</label>
 
                             <div class="uk-width-1-1">
                                 <div class="uk-inline uk-width-1-1">
@@ -85,7 +88,8 @@
                         </div>
 
                         <div>
-                            <label class="uk-form-label uk-text-bold" for="password_confirmation">{{ __('Confirm Password') }}</label>
+                            <label class="uk-form-label uk-text-bold"
+                                   for="password_confirmation">{{ __('Confirm Password') }}</label>
 
                             <div class="uk-width-1-1">
                                 <div class="uk-inline uk-width-1-1">
@@ -116,8 +120,19 @@
 
                             <div>
                                 <button type="submit"
+                                        @class([
+                                            'uk-button uk-border-rounded uk-align-right',
+                                            'uk-button-primary' => !$errors->any(),
+                                            'uk-button-danger' => $errors->any(),
+                                        ])
                                         class="uk-button uk-button-primary uk-border-rounded uk-align-right">
-                                    <span>Next</span>
+                                    @if ($errors->any())
+                                        <span class="uk-margin-small-right uk-icon"
+                                              uk-icon="icon: warning;"></span>
+                                        <span>Next</span>
+                                    @else
+                                        <span>Next</span>
+                                    @endif
                                     <span wire:loading.delay
                                           wire:target="submit"
                                           class="uk-margin-small-left uk-icon uk-spinner"

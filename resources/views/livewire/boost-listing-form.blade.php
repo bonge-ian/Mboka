@@ -7,7 +7,7 @@
                     3. Enhance your listing
                 </legend>
                 <div class="uk-grid uk-grid-medium uk-child-width-1-1"
-                     uk-grid> 
+                     uk-grid>
                     <div class="uk-width-1-1">
                         <p class="uk-text-background uk-text-lead uk-text-bold">
                             Enhance your listing to stand out among the rest
@@ -101,8 +101,18 @@
 
                         <div>
                             <button type="submit"
-                                    class="uk-button uk-button-primary uk-border-rounded uk-align-right">
-                                <span>Next</span>
+                                    @class([
+                                        'uk-button uk-border-rounded uk-align-right',
+                                        'uk-button-primary' => !$errors->any(),
+                                        'uk-button-danger' => $errors->any(),
+                                    ])>
+                              @if ($errors->any())
+                                    <span class="uk-margin-small-right uk-icon"
+                                          uk-icon="icon: warning;"></span>
+                                    <span>Next</span>
+                                @else
+                                    <span>Next</span>
+                                @endif
                                 <span wire:loading.delay
                                       wire:target="submit"
                                       class="uk-margin-small-left uk-icon uk-spinner"
